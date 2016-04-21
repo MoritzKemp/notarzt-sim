@@ -1,0 +1,16 @@
+
+MetaSim - Event-based simulator:
+	Link: https://github.com/glipari/metasim
+	
+adevs - A Discrete Event System Simulator:
+	Link: http://web.ornl.gov/~1qn/adevs/
+	Basiert auf den DEVS-Formalismus.
+
+OMNeT++ - C++ simulation library:
+	Link: https://omnetpp.org/intro
+	Tutorial: http://www.arcos.inf.uc3m.es/~jdaniel/seminarios/omnet2/index.html
+
+
+
+
+

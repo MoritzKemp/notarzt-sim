@@ -5,8 +5,13 @@
 1) Wie wird die Stadtkarte erzeugt? Steht ein Graph zur
 Verfügung, bei dem die Einwohner als Knoten und die Kanten
 mögliche Wege darstellen? Sind die Kanten gewichtet?
+---> Es steht keine Karte zur Verfügung. Es wird eine Karte
+erstellt, die für jede Versuche verwendet wird. Die Karte
+besitzt dann eine maximale Anzahl an Einwohnern.
+
 
 2) Wie kann die Situation simmuliert werden, dass
 der Notarzt während der Rückfahrt einen Anruf bekommt, besonders
 im Hinblick auf eine neue Routenführung. 
+
 
