@@ -21,5 +21,9 @@ class Ergebnisroutine
 note left: Auswertung der Simulation.
 
 Ereignisliste o-- Ereignis : hat als geordnete Liste
-
+Ereignis o-- Ereignisroutine : wird simuliert durch
+Ereignisroutine o-- Simulationsuhr : aktualisiert
+Ereignisroutine o-- Ereignisliste : fügt Ereignis hinzu
+Zeitführungsroutine o-- Ereignisliste : identifiziert nächstes Ereignis
+Zeitführungsroutine o-- Ereignis : bestimmt dessen Ausführung
 @enduml
