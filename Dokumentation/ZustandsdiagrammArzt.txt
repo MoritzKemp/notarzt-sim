@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> Warten : Arbeitsbeginn
+Warten --> UnterwegsHin : Auftrag von Zentrale
+UnterwegsHin --> Behandlung : Ankunft bei Patient
+Behandlung --> UnterwegsRück : Behandlung beendet
+UnterwegsRück --> Warten : Ankunft bei Zentrale
+UnterwegsRück --> UnterwegsHin : Auftrag von Zentrale
+Warten --> [*] : Arbeitsende
+@enduml

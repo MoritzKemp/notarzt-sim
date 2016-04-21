@@ -1,0 +1,24 @@
+***************************************
+*Liste von Ereignissen                *	
+*spezifisch für die Notarzt-Simulation*
+***************************************
+
+- Die Zentrale bekommt einen normalen Notruf.
+
+- Die Zentrale bekommt einen kritischen Notruf.
+
+- Der Arzt bekommt einen normalen Notfall übrmittelt.
+
+- Der Arzt bekommt einen kritischen Notfall übermittelt.
+
+- Der Arzt begibt sich auf den Weg zum Patienten.
+
+- Der Arzt kommt beim Patienten an.
+
+- Der Arzt beginnt die Behandlung.
+
+- Der Arzt hat die Behandlung abgeschlossen.
+
+- Der Arzt begibt sich auf den Rückweg zur Zentrale.
+
+- Der Patient stirbt.
