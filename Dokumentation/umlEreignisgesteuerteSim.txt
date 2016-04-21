@@ -1,0 +1,25 @@
+@startuml
+class Ereignis
+note left: Zustandsänderung zu einem bestimmten Zeitpunkt.
+
+class Ereignisroutine
+note left: Simuliert ein Ereignis, aktualisiert den Systemzustand.
+
+class Simulationsuhr
+note left: Wird vor Aufruf einer Routine auf Ereigniszeitpunkt gestellt,\n steht während des Ablaufes der Routine still.
+
+class Ereignisliste
+note left: Sammlung von geplanten Ereignissen.
+
+class Zeitführungsroutine
+note left: Auswahl des zeitlich nächsten Ereignisses aus der Ereignisliste.
+
+class Initialisierungsroutine
+note left: Initialisiert die Simulation mit initialen Ereignissen etc.
+
+class Ergebnisroutine
+note left: Auswertung der Simulation.
+
+Ereignisliste o-- Ereignis : hat als geordnete Liste
+
+@enduml

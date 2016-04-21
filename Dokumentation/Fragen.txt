@@ -1,0 +1,12 @@
+*******************************************************
+* Fragen, die mit dem Professor geklärt werden müssen *
+*******************************************************
+
+1) Wie wird die Stadtkarte erzeugt? Steht ein Graph zur
+Verfügung, bei dem die Einwohner als Knoten und die Kanten
+mögliche Wege darstellen? Sind die Kanten gewichtet?
+
+2) Wie kann die Situation simmuliert werden, dass
+der Notarzt während der Rückfahrt einen Anruf bekommt, besonders
+im Hinblick auf eine neue Routenführung. 
+
