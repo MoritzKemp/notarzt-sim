@@ -1,0 +1,57 @@
+
+Grundsätzliche Komponenten einer Warteschlangen-Simulation:
+
+1) Quelle: 
+	Erzeugt nach einer vorgebene Verteilung neue Aufträge.
+	Die Anzahl der produzierten Aufträge ist entweder 
+	festgelegt oder unendlich. Der Zeitpunkt, wann
+	ein Auftrag erscheint, bestimmt die Verteilung.
+
+2) Auftrag: 
+	Besitzt Attribute und verschiedene, vorher definierte
+	Zustände. Aufträge werden von Bedienstationen bearbeitet.
+	Attribute können bestimmte Warteschlangen und Bedienstationen
+	verlangen. Attribute können Zufallsgrößen sein.
+
+3) Bedienstationen:
+	Bearbeitet Aufträge und bewirkt bei Aufträgen eine Zustandsänderung.
+	Eine Kapazität gibt die maximale Anzahl an Aufträgen an, die gleichzeitig
+	bearbeitet werden können.
+	Eine Zeitplanung gibt an, welcher Auftrag einer Warteliste als
+	nächstes bearbeitet wird.
+
+4) Ausgang:
+	Eingehende Aufträge erreichen den Endzustand.
+
+5) Warteschlange:
+	
+
+	
+Grundsätzliche Komponenten einer diskreten, ereignisgesteuerten Simulaton:
+
+1) Ereignis:
+	Charakterisiert durch eine Simulationszeit, bei der das Ereignis
+	eintritt, und einem Eriegnis-Typ. Der Typ legt die Ereignisroutine
+	fest, die beim eintreten des Ereignisses abgearbeitet wird.
+
+2) Ereignisliste:
+	Sammlung von geplanten Ereignissen
+
+3) Ereignisroutine:
+	Simuliert ein Ereignis durch die Veränderung von Zuständen an
+	Objekten.
+
+4) Systemzustand:
+	Eine Variablenbelegung zu einer bestimmten Simulationszeit. 
+	Die Variablen repräsentieren die zu untersuchenden Größen
+	der Simulation.
+
+5) Initialisierungsroutine:
+	Initialisiert die Simulation.
+
+6) Ergebnisroutine:
+	Wertet die Simulation durch Betrachtung der Veränderung des
+	Systemzustandes über die Zeit aus.
+
+
+
