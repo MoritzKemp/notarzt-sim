@@ -1,0 +1,40 @@
+@startuml
+
+class Quelle {
+	Verteilung
+	Anzahl
+}
+
+class Auftrag{
+	Zustand
+	attr_1
+	attr_2
+}
+
+class Bedienstation{
+	Kapazität
+	Abfertigungsregel
+	Bedienroutine
+}
+
+class Ausgang{
+	Bedienroutine
+}
+
+class Warteschlange{
+	Ordnungsregel
+	Kapazität
+}
+
+class Router{
+	Verteilung
+	Bedienroutine
+}
+
+Quelle o-- Auftrag: erzeugt nach Wahrscheinlichkeitsmaß
+Bedienstation o-- Auftrag: ändert Zustand
+Bedienstation o-- Warteschlange: besitzt
+Warteschlange o-- Auftrag: geordnete Liste von
+Ausgang o-- Auftrag: erzeugt Endzustand
+
+@enduml
