@@ -1,0 +1,80 @@
+@startuml
+
+class Arzt{
+	Stadtviertel
+	Tätigkeit
+}
+
+class Patient{
+	Stadtviertel
+	Priorität
+	Dringlichkeit
+	Krankheitszustand
+}
+
+class Stadtviertel{
+	Name
+	Einwohnerzahl
+	Mittlere Fahrtzeiten
+}
+	
+class Einsatzzentrale{
+	Stadtviertel
+}
+
+class Notfallwarteschlange{
+	Patienten
+	PatientHinzufügen()
+	PatientEntfernen()
+	NächsterPatient()
+}
+
+abstract Objekt
+
+Objekt <|-- Patient
+Objekt <|-- Stadtviertel
+Objekt <|-- Einsatzzentrale
+Objekt <|-- Arzt
+Objekt <|-- Notfallwarteschlange
+
+abstract Ereignis{
+	Zeitstempel
+	Typ
+}
+
+abstract Ereignisliste{
+	EreignisHinzufügen()
+	ErstesEreignisEntnehmen()
+}
+
+abstract Ereignisroutine{
+	Typ
+	Objektveränderung()
+	Ereigniserzeugung()
+}
+
+abstract Zeitführungsroutine{
+	Ereignisliste
+	NächstesEreignis()
+}
+
+interface Systemzustand{
+	Registrieren()
+	Entfernen()
+	Aktualisieren()
+}
+
+interface Initialisierungsroutine{
+	StartSimulation()
+	ErstelleUnabhängigeEreignisse()
+	BestimmteSimulationsende()
+	AktiviereSimulationsschleife()
+}
+
+Objekt o-- Systemzustand
+Systemzustand o-- Objekt
+Ereignisroutine o-- Objekt
+
+
+
+@enduml

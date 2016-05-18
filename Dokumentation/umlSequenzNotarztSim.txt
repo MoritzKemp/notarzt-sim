@@ -1,0 +1,39 @@
+@startuml
+
+Initialisierungsroutine -> Initialisierungsroutine: ErstelleUnabhängigeEreignise
+
+Initialisierungsroutine --> Ereignis: unabhängigeEreignisse
+	Ereignis --> Systemzustand: registrieren
+	Ereignis <-- Systemzustand
+Initialisierungsroutine <-- Ereignis
+
+Initialisierungsroutine -> Initialisierungsroutine: bestimmteEnde
+
+Initialisierungsroutine --> Ereignis: Endereignis
+	Ereignis --> Systemzustand: registrieren
+	Ereignis <-- Systemzustand
+Initialisierungsroutine <-- Ereignis
+
+loop while !EndEreignis
+	Initialisierungsroutine --> Zeitführungsroutine: nächstesEreignis
+		Zeitführungsroutine --> Ereignisliste: nächstesEreignis
+		Zeitführungsroutine <-- Ereignisliste: Ereignis
+	Initialisierungsroutine <-- Zeitführungsroutine: Ereignis
+	Initialisierungsroutine --> Ereignis: aktiviere
+	Ereignis --> Ereignisroutine: start
+		Ereignisroutine --> Objekt: veränderZustand
+		Ereignisroutine <-- Objekt
+		Ereignisroutine --> Ereignis: erstelle
+		Ereignisroutine <-- Ereignis
+		Ereignis --> Systemzustand: registrieren
+		Ereignis <-- Systemzustand
+		Ereignisroutine --> Ereignisliste: fügeEreignisHinzu
+		Ereignisroutine <-- Ereignisliste
+	Ereignis <-- Ereignisroutine
+	Initialisierungsroutine <-- Ereignis
+	Initialisierungsroutine --> Systemzustand: aktualisieren
+		Systemzustand --> Objekt: holeZustand
+		Systemzustand <-- Objekt
+	Initialisierungsroutine <-- Systemzustand
+end
+@enduml

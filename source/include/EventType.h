@@ -1,0 +1,13 @@
+#ifndef EVENT_TYPE_H
+#define EVENT_TYPE_H
+
+enum class EventType
+{
+    END,
+	ARRIVAL_PATIENT,
+	ARRIVAL_HOME,
+	DEPARTURE_PATIENT,
+	DEPARTURE_HOME
+};
+
+#endif
