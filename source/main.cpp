@@ -1,35 +1,52 @@
 
 #include <stdlib.h>
 #include <iostream>
+
 #include "Event.h"
 #include "EventList.h"
+#include "SimulationManager.h"
+#include "StateStorage.h"
+#include "EndRoutine.h"
+#include "NeuerNotrufRoutine.h"
+#include "NotfallWarteschlange.h"
+#include "HinfahrtPatientRoutine.h"
+#include "AnkunftPatientRoutine.h"
 
 using namespace std;
 
 int main(int argv, char** argc)
 {
-    EventList eventList;
+    //Initial simulation objects
+    NotfallWarteschlange* notfallWarteschlange = new NotfallWarteschlange();
+    EventList* eventList = new EventList();
+    Notarzt* notarzt = new Notarzt(0, NotarztStates::WARTEND, NotarztPlace::STADTVIERTEL_0);
 
-    cout << "Insert 1"<< endl;
-    struct tm* exeTime_1 = (struct tm*) malloc(sizeof(struct tm));
-    strptime("2016-05-16  14:36:00", "%Y-%m-%d %H:%M:%S", exeTime_1);
-    Event* event_1 = new Event(exeTime_1, EventType::ARRIVAL_HOME);
-    eventList.addEvent(event_1);
+    //Initalize storage
+    StateStorage* storage = new StateStorage();
+    storage->registerObject(notarzt);
 
-    cout << "Insert 2"<< endl;
+    // Initiale events
+    int numInitialEvents = 3;
+    Event* events[numInitialEvents];
+    events[0] = new Event(3, EventType::NEUER_NOTRUF);
+    events[1] = new Event(44, EventType::NEUER_NOTRUF);
+    events[2] = new Event(32, EventType::NEUER_NOTRUF);
 
-    struct tm* exeTime_2 = (struct tm*) malloc(sizeof(struct tm));
-    strptime("2016-05-16  10:36:00", "%Y-%m-%d %H:%M:%S", exeTime_2);
-    Event* event_2 = new Event(exeTime_2, EventType::ARRIVAL_PATIENT);
-    eventList.addEvent(event_2);
+    // Routines
+    int numOfRoutines = 4;
+    EventRoutine* routines[numOfRoutines];
+    routines[0] = new NeuerNotrufRoutine(notfallWarteschlange, notarzt, eventList, storage);
+    routines[1] = new HinfahrtPatientRoutine(notarzt, eventList, notfallWarteschlange);
+    routines[2] = new AnkunftPatientRoutine(notarzt, eventList, notfallWarteschlange);
+    routines[3] = new EndRoutine(EventType::END);
 
-    cout << "Insert 3"<< endl;
+    SimulationManager* simulationManager = new SimulationManager(
+        eventList,
+        routines,
+        numOfRoutines,
+        storage
+    );
+    simulationManager->run(events, numInitialEvents, 90);
 
-    struct tm* exeTime_3 = (struct tm*) malloc(sizeof(struct tm));
-    strptime("2016-05-16  12:36:00", "%Y-%m-%d %H:%M:%S", exeTime_3);
-    Event* event_3 = new Event(exeTime_3, EventType::ARRIVAL_HOME);
-    eventList.addEvent(event_3);
-
-    eventList.printList();
-
+    notfallWarteschlange->printList();
 };

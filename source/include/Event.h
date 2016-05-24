@@ -12,13 +12,13 @@
 class Event
 {
 	private:
-	struct tm *executionTime;
+	int executionTime;
 	EventType type;
 
 	public:
-	Event(struct tm *executionTime, EventType type);
+	Event(int executionTime, EventType type);
     ~Event();
-	struct tm* getExecutionTime();
+	int getExecutionTime();
 	EventType getType();
 };
 #endif

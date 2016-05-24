@@ -1,25 +1,27 @@
 #ifndef SIMULATIONMANAGER_H
 #define SIMULATIONMANAGER_H
 
-
+#include "EventList.h"
+#include "EventRoutine.h"
+#include "StateStorage.h"
 class SimulationManager
 {
     private:
     EventList* eventList;
-    EventRoutine* routineList;
-    int numOfEvents;
+    EventRoutine** routineList;
+    StateStorage* stateStorage;
     int numOfRoutines;
-    void executeEvent();
+    void executeEvent(Event *event);
 
     public:
     SimulationManager(
         EventList* eList,
-        int numEvents,
-        EventRoutine* roList,
-        int numRoutines
+        EventRoutine* roList[],
+        int numRoutines,
+        StateStorage* storage
     );
     ~SimulationManager();
-    void run();
+    void run(Event* initlaEvents[], int sizeEvents, int endTime);
 };
 
 #endif

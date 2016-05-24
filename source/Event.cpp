@@ -6,7 +6,7 @@
 
 #include "Event.h"
 
-Event::Event(struct tm *exeTime, EventType t)
+Event::Event(int exeTime, EventType t)
 {
 	executionTime = exeTime;
     type = t;
@@ -16,7 +16,7 @@ Event::~Event()
 {
 };
 
-struct tm* Event::getExecutionTime()
+int Event::getExecutionTime()
 {
 	return executionTime;
 };

@@ -1,0 +1,14 @@
+#ifndef NOTARZTPLACE_H
+#define NOTARZTPLACE_H
+
+
+enum class NotarztPlace
+{
+    STADTVIERTEL_0,
+    STADTVIERTEL_1,
+    STADTVIERTEL_2,
+    STADTVIERTEL_3,
+    STADTVIERTEL_4
+};
+
+#endif // NOTARZTPLACE_H

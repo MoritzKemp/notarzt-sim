@@ -9,11 +9,6 @@ EventRoutine::~EventRoutine()
 {
 };
 
-void EventRoutine::execute()
-{
-    std::cout << "Execute routine type: " << (int)type << std::endl;
-};
-
 EventType EventRoutine::getType()
 {
     return type;

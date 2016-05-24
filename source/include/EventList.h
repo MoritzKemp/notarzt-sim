@@ -17,9 +17,9 @@ class EventList
 	public:
         EventList();
         ~EventList();
+        Event* popEvent();
 		Event* getNextEvent();
 		void addEvent(Event* event);
-		void removeEvent(Event* event);
 		void printList();
 };
 #endif

@@ -37,14 +37,35 @@
 		<Unit filename="Event.cpp" />
 		<Unit filename="EventList.cpp" />
 		<Unit filename="EventRoutine.cpp" />
+		<Unit filename="include/AnkunftPatientRoutine.h" />
+		<Unit filename="include/EndRoutine.h" />
+		<Unit filename="include/EndeBehandlungRoutine.h" />
 		<Unit filename="include/Event.h" />
 		<Unit filename="include/EventList.h" />
 		<Unit filename="include/EventRoutine.h" />
 		<Unit filename="include/EventType.h" />
+		<Unit filename="include/HinfahrtPatientRoutine.h" />
+		<Unit filename="include/NeuerNotrufRoutine.h" />
+		<Unit filename="include/Notarzt.h" />
+		<Unit filename="include/NotarztPlace.h" />
+		<Unit filename="include/NotarztStates.h" />
+		<Unit filename="include/Notfall.h" />
+		<Unit filename="include/NotfallWarteschlange.h" />
+		<Unit filename="include/SimObject.h" />
 		<Unit filename="include/SimulationManager.h" />
-		<Unit filename="include/main.h" />
+		<Unit filename="include/StateStorage.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AnkunftPatientRoutine.cpp" />
+		<Unit filename="src/EndRoutine.cpp" />
+		<Unit filename="src/EndeBehandlungRoutine.cpp" />
+		<Unit filename="src/HinfahrtPatientRoutine.cpp" />
+		<Unit filename="src/NeuerNotrufRoutine.cpp" />
+		<Unit filename="src/Notarzt.cpp" />
+		<Unit filename="src/Notfall.cpp" />
+		<Unit filename="src/NotfallWarteschlange.cpp" />
+		<Unit filename="src/SimObject.cpp" />
 		<Unit filename="src/SimulationManager.cpp" />
+		<Unit filename="src/StateStorage.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

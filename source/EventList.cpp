@@ -13,14 +13,20 @@ EventList::EventList()
 EventList::~EventList()
 {};
 
+Event* EventList::popEvent()
+{
+    Event* event = eventList.front();
+    eventList.pop_front();
+    return event;
+};
+
 Event* EventList::getNextEvent()
 {
-    return *eventList.end();
+    return *eventList.begin();
 };
 
 void EventList::addEvent(Event* event)
 {
-
 	// 1. Find insert location by execution time
 	int found = 0;
     Event* currentEvent;
@@ -29,12 +35,10 @@ void EventList::addEvent(Event* event)
 	while(iter != eventList.end() && found == 0)
 	{
         currentEvent = *iter;
-        time_t currTime_1 = mktime(currentEvent->getExecutionTime());
-        time_t evTime_1 = mktime(event->getExecutionTime());
-        std::cout << difftime(currTime_1, evTime_1) << std::endl;
-		if(
-            difftime(currTime_1, evTime_1) > 0
-        ){
+        int currTime_1 = currentEvent->getExecutionTime();
+        int evTime_1 = event->getExecutionTime();
+
+		if(currTime_1 < evTime_1){
 			iter++;
 		} else {
 			found = 1;
@@ -44,23 +48,20 @@ void EventList::addEvent(Event* event)
 	eventList.insert(iter, event);
 };
 
-void EventList::removeEvent(Event* event)
-{
-};
 
 void EventList::printList()
 {
 	list<Event*>::iterator iter;
     Event* currentEvent;
-    char timeBuff[80];
     int count = 1;
+    cout << "Current event list content: "<< endl;
 	for(iter = eventList.begin(); iter != eventList.end(); iter++)
 	{
         currentEvent = *iter;
-        strftime(timeBuff, 80, "%Y-%m-%d %H:%M:%S", currentEvent->getExecutionTime());
         cout << "[" << count << "] " ;
-		cout << "Event execution on: "<< timeBuff<< " ";
+		cout << "Event execution on: "<< currentEvent->getExecutionTime() << " ";
 		cout << "Event type: "<< (int)currentEvent->getType() << endl;
 		count++;
 	}
+	cout << endl;
 };

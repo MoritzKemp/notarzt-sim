@@ -14,8 +14,8 @@ class EventRoutine{
 
 	public:
 	EventRoutine(EventType type);
-    ~EventRoutine();
-	void execute();
+    virtual ~EventRoutine();
+	virtual void execute(Event* event) = 0;
     EventType getType();
 };
 #endif

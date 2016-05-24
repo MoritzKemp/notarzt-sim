@@ -1,60 +1,94 @@
 #include "SimulationManager.h"
 
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
 SimulationManager::SimulationManager(
     EventList* eList,
-    int numEvents,
-    EventRoutine* roList,
-    int numRoutines
+    EventRoutine* roList[],
+    int numRoutines,
+    StateStorage* storage
 ){
-    eventList = evList;
-    numOfEvents = numEvents;
+    eventList = eList;
     routineList = roList;
     numOfRoutines = numRoutines;
+    stateStorage = storage;
 };
 
 SimulationManager::~SimulationManager()
 {
-    for(int i=0; i<numOfEvents; i++)
-    {
-        free eventList[i];
-    }
+    free(eventList);
 
-    for(int j=0; j<numOfEvents; j++)
+    for(int j=0; j<numOfRoutines; j++)
     {
-        free routineList[j];
+        free(routineList[j]);
     }
 };
 
-void SimulationManager::executeEvent()
+void SimulationManager::executeEvent(Event *event)
 {
-    //TODO
+    EventRoutine* routine;
+    int found = 0;
+    int i=0;
+    while(!found && i< numOfRoutines)
+    {
+        routine = routineList[i];
+
+        if(routine->getType() == event->getType())
+        {
+            routine->execute(event);
+            found = 1;
+        }
+        i++;
+    }
+
+    if(!found)
+    {
+        cout << "No routine for type " << (int)event->getType() << endl;
+    }
 };
 
 void SimulationManager::run(
     Event* initialEvents[],
     int sizeEvents,
-    struct tm* simEnd
+    int endTime
 ){
     //1. Initialisierung
     // 1.1 Zustandsvariablen auf 0 setzen
 
     //1.2 Ereignisliste mit Startereignissen initialisieren
+    cout << "Initialize events" << endl;
     for(int i=0; i<sizeEvents; i++)
     {
-        eventList.addEvent(initialEvents[0]);
+        eventList->addEvent(initialEvents[i]);
     }
     //1.3 Simulationsende-Ereignis hinzufügen
-    Event* endEvent = new Event(simEnd, EventType::END);
-    eventList.addEvent(endEvent);
+    Event* endEvent = new Event(endTime, EventType::END);
+    eventList->addEvent(endEvent);
 
-    Event* currentEvent = eventList.getNextEvent();
+    cout << "Initial event list: " << endl;
+    eventList->printList();
+
+    Event* currentEvent = eventList->popEvent();
 
     //2. Simulationsschleife
-    while(currentEvent.getType() != EventType::END)
+    while(currentEvent->getType() != EventType::END)
     {
-        currentEvent = eventList.getNextEvent();
+        cout << "Execute next event of type: " << (int) currentEvent->getType() << endl;
+        executeEvent(currentEvent);
 
+        eventList->printList();
+
+        // Next event
+        currentEvent = eventList->popEvent();
+
+        //3. Zustände abspeichern
+        stateStorage->saveState();
     }
 
+    // Execute end routine
+    executeEvent(currentEvent);
 };
 
