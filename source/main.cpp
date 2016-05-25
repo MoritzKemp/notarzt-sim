@@ -17,13 +17,14 @@ using namespace std;
 int main(int argv, char** argc)
 {
     //Initial simulation objects
-    NotfallWarteschlange* notfallWarteschlange = new NotfallWarteschlange();
     EventList* eventList = new EventList();
     Notarzt* notarzt = new Notarzt(0, NotarztStates::WARTEND, NotarztPlace::STADTVIERTEL_0);
 
     //Initalize storage
     StateStorage* storage = new StateStorage();
     storage->registerObject(notarzt);
+
+    NotfallWarteschlange* notfallWarteschlange = new NotfallWarteschlange(storage);
 
     // Initiale events
     int numInitialEvents = 3;

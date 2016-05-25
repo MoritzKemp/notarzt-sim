@@ -30,8 +30,6 @@ void NeuerNotrufRoutine::execute(Event* event)
     Notfall* neuerNotfall = new Notfall(callTime, isUrgent, treathmentDuration);
     notfallWarteschlange->add(neuerNotfall);
 
-    stateStorage->registerObject(neuerNotfall);
-
     //Überprüfe, ob Arzt auf Rückweg oder Wartend ist. Wenn ja, dann füge
     //ein Event zur Hinfahrt zum Patienten hinzu, das augeblicklich passiert
     if(
@@ -40,7 +38,7 @@ void NeuerNotrufRoutine::execute(Event* event)
     ){
 
         Event* newEvent = new Event(event->getExecutionTime(), EventType::ABFAHRT_ZU_PATIENT);
-        cout << "Add new event: "<< (int)newEvent->getType()<< endl;
+        cout << "Add new emergency: "<< (int)newEvent->getType()<< endl;
         eventList->addEvent(newEvent);
     }
 }

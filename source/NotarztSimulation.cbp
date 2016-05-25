@@ -34,9 +34,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Event.cpp" />
-		<Unit filename="EventList.cpp" />
-		<Unit filename="EventRoutine.cpp" />
 		<Unit filename="include/AnkunftPatientRoutine.h" />
 		<Unit filename="include/EndRoutine.h" />
 		<Unit filename="include/EndeBehandlungRoutine.h" />
@@ -58,6 +55,9 @@
 		<Unit filename="src/AnkunftPatientRoutine.cpp" />
 		<Unit filename="src/EndRoutine.cpp" />
 		<Unit filename="src/EndeBehandlungRoutine.cpp" />
+		<Unit filename="src/Event.cpp" />
+		<Unit filename="src/EventList.cpp" />
+		<Unit filename="src/EventRoutine.cpp" />
 		<Unit filename="src/HinfahrtPatientRoutine.cpp" />
 		<Unit filename="src/NeuerNotrufRoutine.cpp" />
 		<Unit filename="src/Notarzt.cpp" />

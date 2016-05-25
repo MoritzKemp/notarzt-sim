@@ -2,9 +2,11 @@
 #include "NotfallWarteschlange.h"
 #include <iostream>
 
-NotfallWarteschlange::NotfallWarteschlange()
+NotfallWarteschlange::NotfallWarteschlange(
+    StateStorage* storage
+)
 {
-    //ctor
+    stateStorage = storage;
 }
 
 NotfallWarteschlange::~NotfallWarteschlange()
@@ -44,12 +46,14 @@ void NotfallWarteschlange::add(Notfall* newNotfall)
         }
     }
     notfallList.insert(iter, newNotfall);
+    stateStorage->registerObject(newNotfall);
 }
 
 Notfall* NotfallWarteschlange::pop()
  {
     Notfall* notfall = notfallList.back();
     notfallList.pop_back();
+    stateStorage->unregister(notfall);
     return notfall;
  }
 

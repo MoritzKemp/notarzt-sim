@@ -3,12 +3,16 @@
 
 #include <list>
 #include "Notfall.h"
+#include "StateStorage.h"
+
 using namespace std;
 
 class NotfallWarteschlange
 {
     public:
-        NotfallWarteschlange();
+        NotfallWarteschlange(
+            StateStorage* storage
+        );
         virtual ~NotfallWarteschlange();
         void add(Notfall* notfall);
         Notfall* pop();
@@ -16,6 +20,7 @@ class NotfallWarteschlange
 
     private:
         list<Notfall*> notfallList;
+        StateStorage* stateStorage;
 };
 
 #endif // NOTFALLWARTESCHLANGE_H
