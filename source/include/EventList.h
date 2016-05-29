@@ -19,6 +19,7 @@ class EventList
         ~EventList();
         Event* popEvent();
 		Event* getNextEvent();
+		int removeEventByType(EventType type);
 		void addEvent(Event* event);
 		void printList();
 };

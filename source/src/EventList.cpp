@@ -48,6 +48,27 @@ void EventList::addEvent(Event* event)
 	eventList.insert(iter, event);
 };
 
+int EventList::removeEventByType(EventType type)
+{
+	// 1. Search event in list
+	int found = 0;
+    Event* currentEvent;
+	list<Event*>::iterator iter = eventList.begin();
+
+	while(iter != eventList.end() && found == 0)
+	{
+        currentEvent = *iter;
+		if(currentEvent->getType() == type){
+			found=1;
+			// 2. Remove event
+			eventList.erase(iter);
+		} else {
+			iter++;
+		}
+	}
+
+	return found;
+}
 
 void EventList::printList()
 {

@@ -16,6 +16,7 @@ class NotfallWarteschlange
         virtual ~NotfallWarteschlange();
         void add(Notfall* notfall);
         Notfall* pop();
+		Notfall* front();
         void printList();
 
     private:

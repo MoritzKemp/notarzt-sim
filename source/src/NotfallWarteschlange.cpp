@@ -57,7 +57,12 @@ Notfall* NotfallWarteschlange::pop()
     return notfall;
  }
 
- void NotfallWarteschlange::printList()
+Notfall* NotfallWarteschlange::front()
+{
+	return notfallList.back();
+}
+
+void NotfallWarteschlange::printList()
  {
     list<Notfall*>::iterator iter;
     Notfall* currentNotfall;

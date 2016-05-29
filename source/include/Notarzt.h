@@ -9,19 +9,19 @@
 class Notarzt : public SimObject
 {
     public:
-        Notarzt(int time, NotarztStates state, NotarztPlace place);
+        Notarzt(int time, NotarztStates state, int place);
         virtual ~Notarzt();
         int getTimestamp();
         NotarztStates getNotarztState();
-        NotarztPlace getNotarztPlace();
+        int getNotarztPlace();
         void setTimestamp(int newTimestamp);
         void setNotarztState(NotarztStates newState);
-        void setNotarztPlace(NotarztPlace newPlace);
+        void setNotarztPlace(int newPlace);
         void getState();
     private:
     int timestamp;
     NotarztStates state;
-    NotarztPlace place;
+    int place;
 };
 
 #endif // NOTARZT_H

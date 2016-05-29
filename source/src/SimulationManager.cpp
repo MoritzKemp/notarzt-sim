@@ -59,7 +59,7 @@ void SimulationManager::run(
     // 1.1 Zustandsvariablen auf 0 setzen
 
     //1.2 Ereignisliste mit Startereignissen initialisieren
-    cout << "Initialize events" << endl;
+    cout << "********** Initialize events **********" << endl;
     for(int i=0; i<sizeEvents; i++)
     {
         eventList->addEvent(initialEvents[i]);
@@ -72,11 +72,13 @@ void SimulationManager::run(
     eventList->printList();
 
     Event* currentEvent = eventList->popEvent();
-
+	cout << "********** End initialization **********" << endl;
+	cout << endl;
+	cout << "********** Start simulation loop **********" << endl;
     //2. Simulationsschleife
     while(currentEvent->getType() != EventType::END)
-    {
-        cout << "Execute next event of type: " << (int) currentEvent->getType() << endl;
+    {	
+		cout << "** Start execution **" << endl;
         executeEvent(currentEvent);
 
         eventList->printList();
@@ -86,8 +88,10 @@ void SimulationManager::run(
 
         //3. Zustände abspeichern
         stateStorage->saveState();
+		cout << "** End execution **" << endl;
+		cout << endl;
     }
-
+	cout << "********** End simulation loop **********" << endl;
     // Execute end routine
     executeEvent(currentEvent);
 };

@@ -5,7 +5,7 @@ using namespace std;
 Notarzt::Notarzt(
     int initTime,
     NotarztStates initState,
-    NotarztPlace initPlace
+    int initPlace
 
 )
 {
@@ -24,7 +24,7 @@ int Notarzt::getTimestamp()
     return timestamp;
 }
 
-NotarztPlace Notarzt::getNotarztPlace()
+int Notarzt::getNotarztPlace()
 {
     return place;
 }
@@ -39,7 +39,7 @@ void Notarzt::setTimestamp(int newTimestamp)
     timestamp = newTimestamp;
 }
 
-void Notarzt::setNotarztPlace(NotarztPlace newPlace)
+void Notarzt::setNotarztPlace(int newPlace)
 {
     place = newPlace;
 }

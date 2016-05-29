@@ -51,6 +51,7 @@
 		<Unit filename="include/SimObject.h" />
 		<Unit filename="include/SimulationManager.h" />
 		<Unit filename="include/StateStorage.h" />
+		<Unit filename="include/Zufall.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/AnkunftPatientRoutine.cpp" />
 		<Unit filename="src/EndRoutine.cpp" />
@@ -66,6 +67,7 @@
 		<Unit filename="src/SimObject.cpp" />
 		<Unit filename="src/SimulationManager.cpp" />
 		<Unit filename="src/StateStorage.cpp" />
+		<Unit filename="src/Zufall.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

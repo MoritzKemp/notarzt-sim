@@ -1,11 +1,12 @@
 #ifndef NEUERNOTRUFROUTINE_H
 #define NEUERNOTRUFROUTINE_H
 
-#include <EventRoutine.h>
+#include "EventRoutine.h"
 #include "EventList.h"
-#include <Notarzt.h>
-#include <NotfallWarteschlange.h>
+#include "Notarzt.h"
+#include "NotfallWarteschlange.h"
 #include "StateStorage.h"
+#include "Zufall.h"
 
 class NeuerNotrufRoutine : public EventRoutine
 {
@@ -14,7 +15,8 @@ class NeuerNotrufRoutine : public EventRoutine
             NotfallWarteschlange* n,
             Notarzt* arzt,
             EventList* eList,
-            StateStorage* storage
+            StateStorage* storage,
+			Zufall* randomGen
         );
         virtual ~NeuerNotrufRoutine();
         void execute(Event* event);
@@ -23,6 +25,7 @@ class NeuerNotrufRoutine : public EventRoutine
         Notarzt* notarzt;
         EventList* eventList;
         StateStorage* stateStorage;
+		Zufall* randomGenerator;
 };
 
 #endif // NEUERNOTRUFROUTINE_H

@@ -23,18 +23,20 @@ AnkunftPatientRoutine::~AnkunftPatientRoutine()
 void AnkunftPatientRoutine::execute(Event* event)
 {
     cout << "Running routine for arrival at patient." << endl;
-    // 1. Änder ZUstand vom Notarzt auf "Behandlung"
-    notarzt->setNotarztState(NotarztStates::BEHANDLUNG);
-
-    // 2. Setzte Ereignis für das Ende der Behandlung
-    // 2.1 Hole den Notruf, der behandelt wird.
+    // 1. Setzte Ereignis für das Ende der Behandlung
+    // 1.1 Hole den Notruf, der behandelt wird.
     // Gleichzeitiges Entfernen des Notfalls
     Notfall* behandelterNotfall = notfallWarteschlange->pop();
 
-    // 2.2 Berechne den Zeitpunkt des Behandlungsende
+    // 1.2 Berechne den Zeitpunkt des Behandlungsende
     int zeitBehandlungsende = event->getExecutionTime() + behandelterNotfall->getTreatmentDuration();
     Event* endeBehandlung = new Event(zeitBehandlungsende, EventType::ENDE_BEHANDLUNG);
 
     eventList->addEvent(endeBehandlung);
+
+    // 2. Änder Zustand vom Notarzt
+    notarzt->setNotarztState(NotarztStates::BEHANDLUNG);
+	notarzt->setNotarztPlace(behandelterNotfall->getPlace());
+
 }
 
