@@ -1,8 +1,8 @@
 enum class NotarztStates
 {
     // Notarzt
-    WARTEND,
-    UNTERWEGS_PATIENT,
-    UNTERWEGS_ZENTRALE,
-    BEHANDLUNG
+    WARTEND = 0,
+    UNTERWEGS_PATIENT = 1,
+    UNTERWEGS_ZENTRALE = 2,
+    BEHANDLUNG = 3
 };

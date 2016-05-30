@@ -28,7 +28,8 @@ public:
 	static std::time_t now;
 	static boost::random::mt19937 gen;
 
-
+private:
+	static int fahrzeiten[10][10];
 
 };
 
