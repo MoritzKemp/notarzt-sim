@@ -32,4 +32,5 @@ void RueckfahrtRoutine::execute(Event* event)
 	
 	// 3. Zustand des Notarztes ändern
 	notarzt->setNotarztState(NotarztStates::UNTERWEGS_ZENTRALE);
+	notarzt->setTimestamp(event->getExecutionTime());
 }

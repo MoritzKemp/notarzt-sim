@@ -30,7 +30,10 @@ void NotfallWarteschlange::add(Notfall* newNotfall)
                 && currentNotfall->getCallTime() < newNotfall->getCallTime()
             ){
                 found = 1;
-            }
+            } else
+			{
+				iter++;
+			}
         }
     } else
     {
@@ -42,7 +45,10 @@ void NotfallWarteschlange::add(Notfall* newNotfall)
                 || currentNotfall->getCallTime() < newNotfall->getCallTime()
             ){
                 found = 1;
-            }
+            } else
+			{
+				iter++;
+			}
         }
     }
     notfallList.insert(iter, newNotfall);

@@ -37,6 +37,7 @@ void AnkunftPatientRoutine::execute(Event* event)
     // 2. Änder Zustand vom Notarzt
     notarzt->setNotarztState(NotarztStates::BEHANDLUNG);
 	notarzt->setNotarztPlace(behandelterNotfall->getPlace());
+	notarzt->setTimestamp(event->getExecutionTime());
 
 }
 

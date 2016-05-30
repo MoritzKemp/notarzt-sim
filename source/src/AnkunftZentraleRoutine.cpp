@@ -25,6 +25,7 @@ void AnkunftZentraleRoutine::execute(Event* event)
 	// 1. Zustand vom Notarzt ändern
 	notarzt->setNotarztPlace(0);
 	notarzt->setNotarztState(NotarztStates::WARTEND);
+	notarzt->setTimestamp(event->getExecutionTime());
 
 	// 2. Entscheidung, ob direkt zum nächsten Notruf oder warten
 	Notfall* notfall = notfallWarteschlange->front();

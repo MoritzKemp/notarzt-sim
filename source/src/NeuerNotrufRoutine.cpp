@@ -36,9 +36,13 @@ void NeuerNotrufRoutine::execute(Event* event)
 	treatmentDuration = randomGenerator->versorgungszeit(isUrgent);
 	place = randomGenerator->getStadtbezirk();
 
+	cout << "-- Finish fetching stochastic data" << endl;
+
 	// Notfall mit den zuvor ermittelten Daten der Simulation hinzufügen
     Notfall* neuerNotfall = new Notfall(callTime, isUrgent, treatmentDuration, place);
     notfallWarteschlange->add(neuerNotfall);
+	
+	cout << "-- Add emergency to list" << endl;
 
     //Überprüfe, ob Arzt auf Rückweg oder Wartend ist. Wenn ja, dann füge
     //ein Event zur Hinfahrt zum Patienten hinzu, das augeblicklich passiert

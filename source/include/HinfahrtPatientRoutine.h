@@ -5,17 +5,24 @@
 #include <Notarzt.h>
 #include <EventList.h>
 #include "NotfallWarteschlange.h"
+#include "Zufall.h"
 
 class HinfahrtPatientRoutine : public EventRoutine
 {
     public:
-        HinfahrtPatientRoutine(Notarzt* n, EventList* l, NotfallWarteschlange* warteschlange);
+        HinfahrtPatientRoutine(
+			Notarzt* notarzt, 
+			EventList* eventList, 
+			NotfallWarteschlange* notfallWarteschlange,
+			Zufall* randomGenerator
+		);
         virtual ~HinfahrtPatientRoutine();
         void execute(Event* event);
     private:
         Notarzt* notarzt;
         EventList* eventList;
         NotfallWarteschlange* notfallWarteschlange;
+		Zufall* randomGenerator;
 };
 
 #endif // HINFAHRTPATIENTROUTINE_H
