@@ -4,16 +4,14 @@
 NeuerNotrufRoutine::NeuerNotrufRoutine(
     NotfallWarteschlange* n,
     Notarzt* arzt,
-    EventList* eList,
-    StateStorage* storage,
+    EventList* eList, 
 	Zufall* randomGen
 )
     : EventRoutine(EventType::NEUER_NOTRUF)
 {
     notfallWarteschlange = n;
     notarzt = arzt;
-    eventList = eList;
-    stateStorage = storage;
+    eventList = eList; 
 	randomGenerator = randomGen;
 }
 

@@ -23,7 +23,7 @@ CC=g++
 CFLAGS=-I$(INCLUDE_DIR) $(LIB_DIR) -std=c++11 -Wall -g
 
 eventSim: $(HDR) $(SRC)
-	$(CC) $(CFLAGS) -o eventSim $(HDR) $(SRC)
+	$(CC) $(CFLAGS) -o eventSim $(HDR) $(SRC) $$(mysql_config --libs) $$(mysql_config --cflags)
 
 #Target to create object files (NOT USED CURRENTLY)
 #%.o: ../$(INCLUDE_DIR)/%.h ../$(SRC_DIR)/%.cpp $(ENUMS)

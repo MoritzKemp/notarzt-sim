@@ -27,7 +27,7 @@ int main(int argv, char** argc)
 
     //Initalize storage
     StateStorage* storage = new StateStorage();
-    storage->registerObject(notarzt);
+    storage->registerNotarzt(notarzt);
 
     NotfallWarteschlange* notfallWarteschlange = new NotfallWarteschlange(storage);
 
@@ -49,12 +49,38 @@ int main(int argv, char** argc)
     // Routines
     int numOfRoutines = 7;
     EventRoutine* routines[numOfRoutines];
-    routines[0] = new NeuerNotrufRoutine(notfallWarteschlange, notarzt, eventList, storage, randomGenerator);
-    routines[1] = new HinfahrtPatientRoutine(notarzt, eventList, notfallWarteschlange, randomGenerator);
-    routines[2] = new AnkunftPatientRoutine(notarzt, eventList, notfallWarteschlange);
-	routines[3] = new EndeBehandlungRoutine(notarzt, eventList, notfallWarteschlange);
-	routines[4] = new RueckfahrtRoutine(notarzt, eventList, randomGenerator);
-	routines[5] = new AnkunftZentraleRoutine(notarzt, eventList, notfallWarteschlange);
+    routines[0] = new NeuerNotrufRoutine(
+		notfallWarteschlange, 
+		notarzt, 
+		eventList, 
+		randomGenerator
+	);
+    routines[1] = new HinfahrtPatientRoutine(
+		notarzt, 
+		eventList, 
+		notfallWarteschlange, 
+		randomGenerator
+	);
+    routines[2] = new AnkunftPatientRoutine(
+		notarzt, 
+		eventList, 
+		notfallWarteschlange
+	);
+	routines[3] = new EndeBehandlungRoutine(
+		notarzt, 
+		eventList, 
+		notfallWarteschlange
+	);
+	routines[4] = new RueckfahrtRoutine(
+		notarzt, 
+		eventList, 
+		randomGenerator
+	);
+	routines[5] = new AnkunftZentraleRoutine(
+		notarzt, 
+		eventList, 
+		notfallWarteschlange
+	);
     routines[6] = new EndRoutine(EventType::END);
 
 

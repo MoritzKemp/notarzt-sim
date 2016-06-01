@@ -5,7 +5,6 @@
 #include "EventList.h"
 #include "Notarzt.h"
 #include "NotfallWarteschlange.h"
-#include "StateStorage.h"
 #include "Zufall.h"
 
 class NeuerNotrufRoutine : public EventRoutine
@@ -15,7 +14,6 @@ class NeuerNotrufRoutine : public EventRoutine
             NotfallWarteschlange* n,
             Notarzt* arzt,
             EventList* eList,
-            StateStorage* storage,
 			Zufall* randomGen
         );
         virtual ~NeuerNotrufRoutine();
@@ -24,7 +22,6 @@ class NeuerNotrufRoutine : public EventRoutine
         NotfallWarteschlange* notfallWarteschlange;
         Notarzt* notarzt;
         EventList* eventList;
-        StateStorage* stateStorage;
 		Zufall* randomGenerator;
 };
 

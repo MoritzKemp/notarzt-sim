@@ -3,6 +3,10 @@
 
 #include <list>
 #include "SimObject.h"
+#include <mysql.h>
+#include <my_global.h>
+#include <Notfall.h>
+#include <Notarzt.h>
 
 class StateStorage
 {
@@ -10,11 +14,23 @@ class StateStorage
         StateStorage();
         virtual ~StateStorage();
         void saveState();
-        void registerObject(SimObject* simObject);
-        void unregister(SimObject* simObject);
+        void registerNotfall(Notfall* notfall);
+        void unregisterNotfall(Notfall* notfall);
+        void registerNotarzt(Notarzt* notarzt);
+        void unregisterNotarzt(Notarzt* notarzt);
+		void check_error();
+		void dbconnect();
+		void dbdisconnect();
+		void dbtest();
+		int max_idNotarzt();
+		int max_idNotfall();
+		void storeNotarzt(Notarzt* notarzt);
+		void storeNotfall(Notfall* notfall);
 
     private:
-        std::list<SimObject*> observedList;
+		MYSQL *conn;
+        std::list<Notfall*> observedEmergencies;
+		std::list<Notarzt*> observedDoctors;
 };
 
 #endif // STATESTORAGE_H

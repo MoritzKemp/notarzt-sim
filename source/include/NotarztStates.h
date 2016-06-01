@@ -1,3 +1,6 @@
+#ifndef NOTARZT_STATES
+#define NOTARZT_STATES
+
 enum class NotarztStates
 {
     // Notarzt
@@ -6,3 +9,5 @@ enum class NotarztStates
     UNTERWEGS_ZENTRALE = 2,
     BEHANDLUNG = 3
 };
+
+#endif

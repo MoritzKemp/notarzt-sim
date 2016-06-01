@@ -51,15 +51,18 @@ void NotfallWarteschlange::add(Notfall* newNotfall)
 			}
         }
     }
-    notfallList.insert(iter, newNotfall);
-    stateStorage->registerObject(newNotfall);
+    
+	notfallList.insert(iter, newNotfall);
+    stateStorage->registerNotfall(newNotfall);
 }
 
 Notfall* NotfallWarteschlange::pop()
  {
     Notfall* notfall = notfallList.back();
     notfallList.pop_back();
-    stateStorage->unregister(notfall);
+
+    stateStorage->unregisterNotfall(notfall);
+
     return notfall;
  }
 
