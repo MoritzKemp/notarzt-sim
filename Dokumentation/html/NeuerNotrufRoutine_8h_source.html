@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Notarzt-Simulation: /home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/include/NeuerNotrufRoutine.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Notarzt-Simulation
+   </div>
+   <div id="projectbrief">Diskrete, eventgesteuerte Simulation der Auslastung eines Notarztes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,'Suchen');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_8ee1a5e78eaec319fe5d64075812fc61.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">NeuerNotrufRoutine.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NEUERNOTRUFROUTINE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NEUERNOTRUFROUTINE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;EventRoutine.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;EventList.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Notarzt.h&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;NotfallWarteschlange.h&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Zufall.h&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classNeuerNotrufRoutine.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNeuerNotrufRoutine.html">NeuerNotrufRoutine</a> : <span class="keyword">public</span> <a class="code" href="classEventRoutine.html">EventRoutine</a></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="classNeuerNotrufRoutine.html">NeuerNotrufRoutine</a>(</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="classNotfallWarteschlange.html">NotfallWarteschlange</a>* n,</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="classNotarzt.html">Notarzt</a>* arzt,</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <a class="code" href="classEventList.html">EventList</a>* eList,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="classZufall.html">Zufall</a>* randomGen</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        );</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classNeuerNotrufRoutine.html">NeuerNotrufRoutine</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> execute(<a class="code" href="classEvent.html">Event</a>* event);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classNotfallWarteschlange.html">NotfallWarteschlange</a>* notfallWarteschlange;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classNotarzt.html">Notarzt</a>* notarzt;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classEventList.html">EventList</a>* eventList;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classZufall.html">Zufall</a>* randomGenerator;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // NEUERNOTRUFROUTINE_H</span></div><div class="ttc" id="classEventList_html"><div class="ttname"><a href="classEventList.html">EventList</a></div><div class="ttdef"><b>Definition:</b> EventList.h:12</div></div>
+<div class="ttc" id="classNotfallWarteschlange_html"><div class="ttname"><a href="classNotfallWarteschlange.html">NotfallWarteschlange</a></div><div class="ttdef"><b>Definition:</b> NotfallWarteschlange.h:10</div></div>
+<div class="ttc" id="classNotarzt_html"><div class="ttname"><a href="classNotarzt.html">Notarzt</a></div><div class="ttdef"><b>Definition:</b> Notarzt.h:9</div></div>
+<div class="ttc" id="classEvent_html"><div class="ttname"><a href="classEvent.html">Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:12</div></div>
+<div class="ttc" id="classNeuerNotrufRoutine_html"><div class="ttname"><a href="classNeuerNotrufRoutine.html">NeuerNotrufRoutine</a></div><div class="ttdef"><b>Definition:</b> NeuerNotrufRoutine.h:10</div></div>
+<div class="ttc" id="classEventRoutine_html"><div class="ttname"><a href="classEventRoutine.html">EventRoutine</a></div><div class="ttdef"><b>Definition:</b> EventRoutine.h:11</div></div>
+<div class="ttc" id="classZufall_html"><div class="ttname"><a href="classZufall.html">Zufall</a></div><div class="ttdef"><b>Definition:</b> Zufall.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>
