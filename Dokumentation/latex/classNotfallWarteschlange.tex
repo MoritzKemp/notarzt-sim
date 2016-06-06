@@ -1,24 +1,79 @@
 \hypertarget{classNotfallWarteschlange}{}\section{Notfall\+Warteschlange Klassenreferenz}
 \label{classNotfallWarteschlange}\index{Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+
+
+{\ttfamily \#include $<$Notfall\+Warteschlange.\+h$>$}
+
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Notfall\+Warteschlange} (\hyperlink{classStateStorage}{State\+Storage} $\ast$storage)\hypertarget{classNotfallWarteschlange_a6044cf77e4e6485aa182c03d03da7cd3}{}\label{classNotfallWarteschlange_a6044cf77e4e6485aa182c03d03da7cd3}
+\hyperlink{classNotfallWarteschlange_a6044cf77e4e6485aa182c03d03da7cd3}{Notfall\+Warteschlange} (\hyperlink{classStateStorage}{State\+Storage} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+void \hyperlink{classNotfallWarteschlange_adbe91265e4e4fa6b075714aaa6287fc6}{add} (\hyperlink{classNotfall}{Notfall} $\ast$notfall)
+\begin{DoxyCompactList}\small\item\em Fügt einen \hyperlink{classNotfall}{Notfall} hinzu. \end{DoxyCompactList}\item 
+\hyperlink{classNotfall}{Notfall} $\ast$ \hyperlink{classNotfallWarteschlange_af941293bb468dccf5283bdba4d3ad664}{pop} ()
+\begin{DoxyCompactList}\small\item\em Liefert und entfernt den nächsten \hyperlink{classNotfall}{Notfall}. \end{DoxyCompactList}\item 
+\hyperlink{classNotfall}{Notfall} $\ast$ \hyperlink{classNotfallWarteschlange_ab541fb2019e971af7fb45b995c9c8418}{front} ()
+\begin{DoxyCompactList}\small\item\em Liefert den nächsten\+Notfall. \end{DoxyCompactList}\item 
+void \hyperlink{classNotfallWarteschlange_aab9cd1910a42b4c6a563daec7f49cddd}{print\+List} ()\hypertarget{classNotfallWarteschlange_aab9cd1910a42b4c6a563daec7f49cddd}{}\label{classNotfallWarteschlange_aab9cd1910a42b4c6a563daec7f49cddd}
 
-\item 
-void {\bfseries add} (\hyperlink{classNotfall}{Notfall} $\ast$notfall)\hypertarget{classNotfallWarteschlange_adbe91265e4e4fa6b075714aaa6287fc6}{}\label{classNotfallWarteschlange_adbe91265e4e4fa6b075714aaa6287fc6}
+\begin{DoxyCompactList}\small\item\em Druckt die aktuelle Warteschlange auf die Ausgabe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hyperlink{classNotfall}{Notfall} $\ast$ {\bfseries pop} ()\hypertarget{classNotfallWarteschlange_af941293bb468dccf5283bdba4d3ad664}{}\label{classNotfallWarteschlange_af941293bb468dccf5283bdba4d3ad664}
 
-\item 
-\hyperlink{classNotfall}{Notfall} $\ast$ {\bfseries front} ()\hypertarget{classNotfallWarteschlange_ab541fb2019e971af7fb45b995c9c8418}{}\label{classNotfallWarteschlange_ab541fb2019e971af7fb45b995c9c8418}
+\subsection{Ausführliche Beschreibung}
+Verwaltet Notfälle
 
-\item 
-void {\bfseries print\+List} ()\hypertarget{classNotfallWarteschlange_aab9cd1910a42b4c6a563daec7f49cddd}{}\label{classNotfallWarteschlange_aab9cd1910a42b4c6a563daec7f49cddd}
+In der Notarzt-\/\+Simulation werden Notfälle in einer Warteschlange verwaltet. Die Warteschlange defniert dabei den nächsten \hyperlink{classNotfall}{Notfall}, den der \hyperlink{classNotarzt}{Notarzt} behandeln muss. Für die Sortierung der Notfälle werden dabei zwei Kriterien heran gezogen\+: den Zeitpunkt des Anrufes (ältere Anrufe zuerst) und die Priorität (hohe Priorität immer zuerst). 
 
-\end{DoxyCompactItemize}
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Notfall\+Warteschlange@{Notfall\+Warteschlange}!Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+\index{Notfall\+Warteschlange@{Notfall\+Warteschlange}!Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+\subsubsection[{\texorpdfstring{Notfall\+Warteschlange(\+State\+Storage $\ast$storage)}{NotfallWarteschlange(StateStorage *storage)}}]{\setlength{\rightskip}{0pt plus 5cm}Notfall\+Warteschlange\+::\+Notfall\+Warteschlange (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}\hypertarget{classNotfallWarteschlange_a6044cf77e4e6485aa182c03d03da7cd3}{}\label{classNotfallWarteschlange_a6044cf77e4e6485aa182c03d03da7cd3}
 
+
+Konstruktor. 
+
+Erstellt ein Notfall\+Warteschlangen-\/\+Objekt. Benötigt ein \hyperlink{classStateStorage}{State\+Storage} Objekt zur Registrierung von Notfällen, damit diese automatisch abgespeichert werden. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Notfall\+Warteschlange@{Notfall\+Warteschlange}!add@{add}}
+\index{add@{add}!Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+\subsubsection[{\texorpdfstring{add(\+Notfall $\ast$notfall)}{add(Notfall *notfall)}}]{\setlength{\rightskip}{0pt plus 5cm}void Notfall\+Warteschlange\+::add (
+\begin{DoxyParamCaption}
+\item[{{\bf Notfall} $\ast$}]{notfall}
+\end{DoxyParamCaption}
+)}\hypertarget{classNotfallWarteschlange_adbe91265e4e4fa6b075714aaa6287fc6}{}\label{classNotfallWarteschlange_adbe91265e4e4fa6b075714aaa6287fc6}
+
+
+Fügt einen \hyperlink{classNotfall}{Notfall} hinzu. 
+
+Der übergebene \hyperlink{classNotfall}{Notfall} wird der Warteschlange hinzugefügt. Seine Position innerhalb der Warteschlange bestimmen seine Attribute der Priorität und der Anrufzeit. \index{Notfall\+Warteschlange@{Notfall\+Warteschlange}!front@{front}}
+\index{front@{front}!Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+\subsubsection[{\texorpdfstring{front()}{front()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Notfall} $\ast$ Notfall\+Warteschlange\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNotfallWarteschlange_ab541fb2019e971af7fb45b995c9c8418}{}\label{classNotfallWarteschlange_ab541fb2019e971af7fb45b995c9c8418}
+
+
+Liefert den nächsten\+Notfall. 
+
+Liefert den nächsten \hyperlink{classNotfall}{Notfall}, ohne ihn aus der Warteschlange zu entfernen. D.\+h. ein direktes, wiederholtes Aufrufen dieser Funktion liefert den gleichen \hyperlink{classNotfall}{Notfall}. \index{Notfall\+Warteschlange@{Notfall\+Warteschlange}!pop@{pop}}
+\index{pop@{pop}!Notfall\+Warteschlange@{Notfall\+Warteschlange}}
+\subsubsection[{\texorpdfstring{pop()}{pop()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Notfall} $\ast$ Notfall\+Warteschlange\+::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNotfallWarteschlange_af941293bb468dccf5283bdba4d3ad664}{}\label{classNotfallWarteschlange_af941293bb468dccf5283bdba4d3ad664}
+
+
+Liefert und entfernt den nächsten \hyperlink{classNotfall}{Notfall}. 
+
+Liefert den nächsten zu behandelden \hyperlink{classNotfall}{Notfall} zurück und löscht diesen aus der Warteschlange. 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
 \item 

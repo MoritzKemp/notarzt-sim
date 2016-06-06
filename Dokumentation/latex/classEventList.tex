@@ -1,26 +1,36 @@
 \hypertarget{classEventList}{}\section{Event\+List Klassenreferenz}
 \label{classEventList}\index{Event\+List@{Event\+List}}
+
+
+Verwaltet Ereignisse.  
+
+
+
+
+{\ttfamily \#include $<$Event\+List.\+h$>$}
+
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classEventList_afb3f0b055c2b7c5431cfe234ffcda269}{Event\+List} ()
-\item 
-\hyperlink{classEvent}{Event} $\ast$ {\bfseries pop\+Event} ()\hypertarget{classEventList_a0a14cce1690774fa3c88a694bc4f2572}{}\label{classEventList_a0a14cce1690774fa3c88a694bc4f2572}
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+\hyperlink{classEvent}{Event} $\ast$ \hyperlink{classEventList_a0a14cce1690774fa3c88a694bc4f2572}{pop\+Event} ()
+\begin{DoxyCompactList}\small\item\em Nächstes Ereignis liefern und löschen. \end{DoxyCompactList}\item 
+\hyperlink{classEvent}{Event} $\ast$ \hyperlink{classEventList_aa426ac93e711b567b66f7ba3c51cb2bd}{get\+Next\+Event} ()
+\begin{DoxyCompactList}\small\item\em Nächstes Ereignis liefern. \end{DoxyCompactList}\item 
+int \hyperlink{classEventList_a3bd963a8a43cc5efcbe0059e58425985}{remove\+Event\+By\+Type} (Event\+Type type)
+\begin{DoxyCompactList}\small\item\em Löscht das nächste Ereignis eines bestimmten Types. \end{DoxyCompactList}\item 
+void \hyperlink{classEventList_ab17b4c5ef72e741876a5563a5a281d74}{add\+Event} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Ereignis hinzufügen. \end{DoxyCompactList}\item 
+void \hyperlink{classEventList_a7e32e3d4bc10adb837048937a21bfb6b}{print\+List} ()\hypertarget{classEventList_a7e32e3d4bc10adb837048937a21bfb6b}{}\label{classEventList_a7e32e3d4bc10adb837048937a21bfb6b}
 
-\item 
-\hyperlink{classEvent}{Event} $\ast$ {\bfseries get\+Next\+Event} ()\hypertarget{classEventList_aa426ac93e711b567b66f7ba3c51cb2bd}{}\label{classEventList_aa426ac93e711b567b66f7ba3c51cb2bd}
+\begin{DoxyCompactList}\small\item\em Drucken der aktuellen Liste auf die Ausgabe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-int {\bfseries remove\+Event\+By\+Type} (Event\+Type type)\hypertarget{classEventList_a3bd963a8a43cc5efcbe0059e58425985}{}\label{classEventList_a3bd963a8a43cc5efcbe0059e58425985}
 
-\item 
-void {\bfseries add\+Event} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classEventList_ab17b4c5ef72e741876a5563a5a281d74}{}\label{classEventList_ab17b4c5ef72e741876a5563a5a281d74}
+\subsection{Ausführliche Beschreibung}
+Verwaltet Ereignisse. 
 
-\item 
-void {\bfseries print\+List} ()\hypertarget{classEventList_a7e32e3d4bc10adb837048937a21bfb6b}{}\label{classEventList_a7e32e3d4bc10adb837048937a21bfb6b}
-
-\end{DoxyCompactItemize}
-
+Ereignisliste (engl. event list) für die diskrete, ereignisgesteuerte Simulation. Die Ereignisliste ist ein Besatndteil jeder ereignisgesteuerten Simulation und defniert das nächste Ereignis der Simulation. Ereignisse können hinzugefügt und wieder entfernt werden. Die Liste sortiert die Ereignisse nach ihrer Ausführungszeit. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
 \index{Event\+List@{Event\+List}!Event\+List@{Event\+List}}
@@ -30,7 +40,60 @@ void {\bfseries print\+List} ()\hypertarget{classEventList_a7e32e3d4bc10adb83704
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classEventList_afb3f0b055c2b7c5431cfe234ffcda269}{}\label{classEventList_afb3f0b055c2b7c5431cfe234ffcda269}
+
+
+Konstruktor. 
+
 Ereignisliste für die diskrete, eventgesteruerte Simulation. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Event\+List@{Event\+List}!add\+Event@{add\+Event}}
+\index{add\+Event@{add\+Event}!Event\+List@{Event\+List}}
+\subsubsection[{\texorpdfstring{add\+Event(\+Event $\ast$event)}{addEvent(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+List\+::add\+Event (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventList_ab17b4c5ef72e741876a5563a5a281d74}{}\label{classEventList_ab17b4c5ef72e741876a5563a5a281d74}
+
+
+Ereignis hinzufügen. 
+
+Fügt das übergebene \hyperlink{classEvent}{Event} der Ereignisliste hinzu und sortiert es in die richtige Stelle ein. Die Liste bleibt somit sortiert. \index{Event\+List@{Event\+List}!get\+Next\+Event@{get\+Next\+Event}}
+\index{get\+Next\+Event@{get\+Next\+Event}!Event\+List@{Event\+List}}
+\subsubsection[{\texorpdfstring{get\+Next\+Event()}{getNextEvent()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} $\ast$ Event\+List\+::get\+Next\+Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventList_aa426ac93e711b567b66f7ba3c51cb2bd}{}\label{classEventList_aa426ac93e711b567b66f7ba3c51cb2bd}
+
+
+Nächstes Ereignis liefern. 
+
+Liefert jenes Ereignis, dass von der Ausführungszeit her das nächste Ereignis ist. Kein Löschen, d.\+h. der wiederholte Aufruf liefert das gleiche Ereignis. \index{Event\+List@{Event\+List}!pop\+Event@{pop\+Event}}
+\index{pop\+Event@{pop\+Event}!Event\+List@{Event\+List}}
+\subsubsection[{\texorpdfstring{pop\+Event()}{popEvent()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} $\ast$ Event\+List\+::pop\+Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventList_a0a14cce1690774fa3c88a694bc4f2572}{}\label{classEventList_a0a14cce1690774fa3c88a694bc4f2572}
+
+
+Nächstes Ereignis liefern und löschen. 
+
+Liefert jenes Ereignis, dass von der Ausführungszeit her das nächste Ereignis ist. Das Ereignis wird zugleich von der Liste entfernt. \index{Event\+List@{Event\+List}!remove\+Event\+By\+Type@{remove\+Event\+By\+Type}}
+\index{remove\+Event\+By\+Type@{remove\+Event\+By\+Type}!Event\+List@{Event\+List}}
+\subsubsection[{\texorpdfstring{remove\+Event\+By\+Type(\+Event\+Type type)}{removeEventByType(EventType type)}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+List\+::remove\+Event\+By\+Type (
+\begin{DoxyParamCaption}
+\item[{Event\+Type}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventList_a3bd963a8a43cc5efcbe0059e58425985}{}\label{classEventList_a3bd963a8a43cc5efcbe0059e58425985}
+
+
+Löscht das nächste Ereignis eines bestimmten Types. 
+
+Löscht jenes Ereignis aus der Ereignisliste, dass den selben Typ entspricht wie im übergebenem Parameter. Löscht N\+I\+C\+HT alle Events dieses Typs, sondern nur jenes von dem Typ, das als nächstes zur Ausführung kommen würde.
+
+Gibt zurück, ob ein \hyperlink{classEvent}{Event} gelöscht wurde (1) oder nicht (0) 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
 \item 

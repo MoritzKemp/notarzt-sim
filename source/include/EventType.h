@@ -1,6 +1,12 @@
 #ifndef EVENT_TYPE_H
 #define EVENT_TYPE_H
 
+/** \brief Aufzählung von Ereignistypen
+ *
+ * Alle Ereignistypen einer spezifischen Simulation
+ * werden hier aufgelistet. Bis auf den END-Typ können
+ * sich also die Aufzählungen je nach Simulation ändern.
+ */
 enum class EventType
 {
     END 				= 0,

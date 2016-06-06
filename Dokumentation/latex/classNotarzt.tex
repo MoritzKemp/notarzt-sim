@@ -1,5 +1,14 @@
 \hypertarget{classNotarzt}{}\section{Notarzt Klassenreferenz}
 \label{classNotarzt}\index{Notarzt@{Notarzt}}
+
+
+Repräsentiert einen \hyperlink{classNotarzt}{Notarzt}.  
+
+
+
+
+{\ttfamily \#include $<$Notarzt.\+h$>$}
+
 Klassendiagramm für Notarzt\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,9 +18,8 @@ Klassendiagramm für Notarzt\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Notarzt} (int time, Notarzt\+States state, int place)\hypertarget{classNotarzt_a6b1615d76bbe776b0cba25d5ad6d5f8e}{}\label{classNotarzt_a6b1615d76bbe776b0cba25d5ad6d5f8e}
-
-\item 
+\hyperlink{classNotarzt_af90cdea1ef049791cf09cd6d1e9f8399}{Notarzt} (Notarzt\+States state, int place)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
 int {\bfseries get\+Timestamp} ()\hypertarget{classNotarzt_af94182cd4fc47929260c9ce3e129028f}{}\label{classNotarzt_af94182cd4fc47929260c9ce3e129028f}
 
 \item 
@@ -30,9 +38,48 @@ void {\bfseries set\+Notarzt\+State} (Notarzt\+States new\+State)\hypertarget{cl
 void {\bfseries set\+Notarzt\+Place} (int new\+Place)\hypertarget{classNotarzt_a3ccdfae8cbaebbe4d0ff049f05e78016}{}\label{classNotarzt_a3ccdfae8cbaebbe4d0ff049f05e78016}
 
 \item 
-void {\bfseries get\+State} ()\hypertarget{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}{}\label{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}
+void \hyperlink{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Funktionssignatur für das Abspeichern des Objektes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Ausführliche Beschreibung}
+Repräsentiert einen \hyperlink{classNotarzt}{Notarzt}. 
+
+Klasse für die Erstellung von Notarzt-\/\+Objekten, die in der Notarzt-\/\+Simulation verwendet werden können. Der \hyperlink{classNotarzt}{Notarzt} besitzt keine eigen Logik sondern repräsentiert immer nur einen bestimmten Zustand des Notarztes in der Notarzt-\/\+Simulation. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Notarzt@{Notarzt}!Notarzt@{Notarzt}}
+\index{Notarzt@{Notarzt}!Notarzt@{Notarzt}}
+\subsubsection[{\texorpdfstring{Notarzt(\+Notarzt\+States state, int place)}{Notarzt(NotarztStates state, int place)}}]{\setlength{\rightskip}{0pt plus 5cm}Notarzt\+::\+Notarzt (
+\begin{DoxyParamCaption}
+\item[{Notarzt\+States}]{state, }
+\item[{int}]{place}
+\end{DoxyParamCaption}
+)}\hypertarget{classNotarzt_af90cdea1ef049791cf09cd6d1e9f8399}{}\label{classNotarzt_af90cdea1ef049791cf09cd6d1e9f8399}
+
+
+Konstruktor. 
+
+Mit den gegebene Parametern wird der Anfangszustand des Notarztes in der Notarzt-\/\+Simulation defniert. Timestamp wird initial immer auf 0 gesetzt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Notarzt@{Notarzt}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Notarzt@{Notarzt}}
+\subsubsection[{\texorpdfstring{get\+State()}{getState()}}]{\setlength{\rightskip}{0pt plus 5cm}void Notarzt\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}{}\label{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}
+
+
+Funktionssignatur für das Abspeichern des Objektes. 
+
+Diese Schnittstelle stellt die minimale Erwartunhshaltung an Zustands-\/\+Objekten innerhalb einer Simulation dar. Sie muss foglich von jedem speziellem Zustands-\/\+Objekt implementiert werden. Diese Funktion speichert den aktuellen Zustand des Objektes.
+
+T\+O\+DO Wird in der aktuellen Notarzt-\/\+Implementierung nicht verwendet. Die aktuelle Architektur lässt keine allgemeien Speicherung von Sim\+Objekten zu. 
+
+Implementiert \hyperlink{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}{Sim\+Object}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

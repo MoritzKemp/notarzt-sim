@@ -72,6 +72,7 @@ void SimulationManager::run(
     eventList->printList();
 
     Event* currentEvent = eventList->popEvent();
+	Event* nextEvent;
 	cout << "********** End initialization **********" << endl;
 	cout << endl;
 	cout << "********** Start simulation loop **********" << endl;
@@ -84,10 +85,16 @@ void SimulationManager::run(
         eventList->printList();
 
         // Next event
-        currentEvent = eventList->popEvent();
+        nextEvent = eventList->popEvent();
 
-        //3. Zustände abspeichern
-        stateStorage->saveState();
+        //3. Zustände abspeichern (nur wenn sich die Zeiten unterscheiden)
+        if( nextEvent->getExecutionTime() != currentEvent->getExecutionTime() )
+		{
+        	stateStorage->saveState(currentEvent->getExecutionTime());
+		}
+
+		currentEvent = nextEvent;
+		
 		cout << "** End execution **" << endl;
 		cout << endl;
     }

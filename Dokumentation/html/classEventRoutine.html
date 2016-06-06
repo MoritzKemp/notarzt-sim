@@ -66,34 +66,111 @@ $(function() {
 <div class="title">EventRoutine Klassenreferenz<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstrakte Erignis-Routine.  
+ <a href="classEventRoutine.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EventRoutine_8h_source.html">EventRoutine.h</a>&gt;</code></p>
 <div class="dynheader">
 Klassendiagramm für EventRoutine:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classEventRoutine.png" usemap="#EventRoutine_map" alt=""/>
   <map id="EventRoutine_map" name="EventRoutine_map">
-<area href="classAnkunftPatientRoutine.html" alt="AnkunftPatientRoutine" shape="rect" coords="0,56,150,80"/>
-<area href="classAnkunftZentraleRoutine.html" alt="AnkunftZentraleRoutine" shape="rect" coords="160,56,310,80"/>
-<area href="classEndeBehandlungRoutine.html" alt="EndeBehandlungRoutine" shape="rect" coords="320,56,470,80"/>
-<area href="classEndRoutine.html" alt="EndRoutine" shape="rect" coords="480,56,630,80"/>
-<area href="classHinfahrtPatientRoutine.html" alt="HinfahrtPatientRoutine" shape="rect" coords="640,56,790,80"/>
-<area href="classNeuerNotrufRoutine.html" alt="NeuerNotrufRoutine" shape="rect" coords="800,56,950,80"/>
-<area href="classRueckfahrtRoutine.html" alt="RueckfahrtRoutine" shape="rect" coords="960,56,1110,80"/>
+<area href="classAnkunftPatientRoutine.html" title="Routine für die Ankunft des Notarztes beim Patienten. " alt="AnkunftPatientRoutine" shape="rect" coords="0,56,150,80"/>
+<area href="classAnkunftZentraleRoutine.html" title="Routine für die Ankunft des Notarztes in der Zentrale. " alt="AnkunftZentraleRoutine" shape="rect" coords="160,56,310,80"/>
+<area href="classEndeBehandlungRoutine.html" title="Routine für das Ende einer Behandlung eines Notfalls. " alt="EndeBehandlungRoutine" shape="rect" coords="320,56,470,80"/>
+<area href="classEndRoutine.html" title="Routine für das Ende der Simulation. " alt="EndRoutine" shape="rect" coords="480,56,630,80"/>
+<area href="classHinfahrtPatientRoutine.html" title="Routine für den Beginn der Hinfahrt zum Patienten/Notfall. " alt="HinfahrtPatientRoutine" shape="rect" coords="640,56,790,80"/>
+<area href="classNeuerNotrufRoutine.html" title="Routine für den Eingang eines Notrufes. " alt="NeuerNotrufRoutine" shape="rect" coords="800,56,950,80"/>
+<area href="classRueckfahrtRoutine.html" title="Routine für die Rückfahrt zur Zentrale. " alt="RueckfahrtRoutine" shape="rect" coords="960,56,1110,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Öffentliche Methoden</h2></td></tr>
-<tr class="memitem:acd33ef6e5acc459719005276cc9c55e9"><td class="memItemLeft" align="right" valign="top"><a id="acd33ef6e5acc459719005276cc9c55e9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventRoutine</b> (EventType type)</td></tr>
+<tr class="memitem:acd33ef6e5acc459719005276cc9c55e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventRoutine.html#acd33ef6e5acc459719005276cc9c55e9">EventRoutine</a> (EventType type)</td></tr>
+<tr class="memdesc:acd33ef6e5acc459719005276cc9c55e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor.  <a href="#acd33ef6e5acc459719005276cc9c55e9">Mehr ...</a><br /></td></tr>
 <tr class="separator:acd33ef6e5acc459719005276cc9c55e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aede9b0fdb576a4a262ced2d7d6548c14"><td class="memItemLeft" align="right" valign="top"><a id="aede9b0fdb576a4a262ced2d7d6548c14"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> (<a class="el" href="classEvent.html">Event</a> *event)=0</td></tr>
+<tr class="memitem:aede9b0fdb576a4a262ced2d7d6548c14"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventRoutine.html#aede9b0fdb576a4a262ced2d7d6548c14">execute</a> (<a class="el" href="classEvent.html">Event</a> *event)=0</td></tr>
+<tr class="memdesc:aede9b0fdb576a4a262ced2d7d6548c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktionssignatur Ausführung einer Routine.  <a href="#aede9b0fdb576a4a262ced2d7d6548c14">Mehr ...</a><br /></td></tr>
 <tr class="separator:aede9b0fdb576a4a262ced2d7d6548c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcaf1409efcd2b6572b54c7a6fc02428"><td class="memItemLeft" align="right" valign="top"><a id="afcaf1409efcd2b6572b54c7a6fc02428"></a>
-EventType&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> ()</td></tr>
+<tr class="memitem:afcaf1409efcd2b6572b54c7a6fc02428"><td class="memItemLeft" align="right" valign="top">EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventRoutine.html#afcaf1409efcd2b6572b54c7a6fc02428">getType</a> ()</td></tr>
+<tr class="memdesc:afcaf1409efcd2b6572b54c7a6fc02428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liefert Ereignistyp.  <a href="#afcaf1409efcd2b6572b54c7a6fc02428">Mehr ...</a><br /></td></tr>
 <tr class="separator:afcaf1409efcd2b6572b54c7a6fc02428"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Abstrakte Erignis-Routine. </p>
+<p>Abstrakte Klasse für die minimale Definition einer Ereignisroutine in einer diskreten, eventgesteuerten Simulation. </p>
+</div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a id="acd33ef6e5acc459719005276cc9c55e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventRoutine::EventRoutine </td>
+          <td>(</td>
+          <td class="paramtype">EventType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor. </p>
+<p>Eine Routine besitzt immer einen spezifischen Typ, der von der Art der Simulation abhängig ist. Dieser Typ ermöglich der Simulationsschleife, die passende Routine zu einem <a class="el" href="classEvent.html" title="Klasse für die Erstellung von Ereignissen. ">Event</a> zu finden. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a id="aede9b0fdb576a4a262ced2d7d6548c14"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void EventRoutine::execute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEvent.html">Event</a> *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Funktionssignatur Ausführung einer Routine. </p>
+<p>Abstrakte Funktion, die die Erwartungshaltung an alle implementierten Ereignisroutinen definiert. Das ermöglicht eine allgemeine Definition der Simulationsschleife ohne dass spezielle Wissen über die implementierten Ereignisroutinen notwendig ist.</p>
+<p>Muss von jeder spezialisierenden Klasse implementiert werden </p>
+
+<p>Implementiert in <a class="el" href="classHinfahrtPatientRoutine.html#a95ee9981032536e15cad4bbe0fcb6903">HinfahrtPatientRoutine</a>, <a class="el" href="classNeuerNotrufRoutine.html#af2d883cecce5e012c9332c933c1cb10f">NeuerNotrufRoutine</a>, <a class="el" href="classEndeBehandlungRoutine.html#a462bdb38325bd4b5d550d4d9145e1558">EndeBehandlungRoutine</a>, <a class="el" href="classAnkunftPatientRoutine.html#a42cdf97821606ce3d4f807b685f3a70d">AnkunftPatientRoutine</a>, <a class="el" href="classRueckfahrtRoutine.html#a7eec059994f3c958696697df05cfefe9">RueckfahrtRoutine</a>, <a class="el" href="classAnkunftZentraleRoutine.html#ab6d6422067bb87d64f4973c68c6d796a">AnkunftZentraleRoutine</a> und <a class="el" href="classEndRoutine.html#a147e1143dfec1d3fb4a58d3a6efd6641">EndRoutine</a>.</p>
+
+</div>
+</div>
+<a id="afcaf1409efcd2b6572b54c7a6fc02428"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventType EventRoutine::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Liefert Ereignistyp. </p>
+<p>Fertig implementierte Funtkion zur Rückgabe des Eriegnistyps. </p>
+
+</div>
+</div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/include/<a class="el" href="EventRoutine_8h_source.html">EventRoutine.h</a></li>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/src/EventRoutine.cpp</li>

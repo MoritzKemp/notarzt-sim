@@ -3,13 +3,12 @@
 
 using namespace std;
 Notarzt::Notarzt(
-    int initTime,
     NotarztStates initState,
     int initPlace
 
 )
 {
-    timestamp = initTime;
+    timestamp = 0;
     place = initPlace;
     state = initState;
 }

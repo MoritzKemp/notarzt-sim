@@ -1,5 +1,14 @@
 \hypertarget{classEventRoutine}{}\section{Event\+Routine Klassenreferenz}
 \label{classEventRoutine}\index{Event\+Routine@{Event\+Routine}}
+
+
+Abstrakte Erignis-\/\+Routine.  
+
+
+
+
+{\ttfamily \#include $<$Event\+Routine.\+h$>$}
+
 Klassendiagramm für Event\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,16 +18,63 @@ Klassendiagramm für Event\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Event\+Routine} (Event\+Type type)\hypertarget{classEventRoutine_acd33ef6e5acc459719005276cc9c55e9}{}\label{classEventRoutine_acd33ef6e5acc459719005276cc9c55e9}
+\hyperlink{classEventRoutine_acd33ef6e5acc459719005276cc9c55e9}{Event\+Routine} (Event\+Type type)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{execute} (\hyperlink{classEvent}{Event} $\ast$event)=0
+\begin{DoxyCompactList}\small\item\em Funktionssignatur Ausführung einer Routine. \end{DoxyCompactList}\item 
+Event\+Type \hyperlink{classEventRoutine_afcaf1409efcd2b6572b54c7a6fc02428}{get\+Type} ()
+\begin{DoxyCompactList}\small\item\em Liefert Ereignistyp. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-virtual void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)=0\hypertarget{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{}\label{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}
 
-\item 
-Event\+Type {\bfseries get\+Type} ()\hypertarget{classEventRoutine_afcaf1409efcd2b6572b54c7a6fc02428}{}\label{classEventRoutine_afcaf1409efcd2b6572b54c7a6fc02428}
+\subsection{Ausführliche Beschreibung}
+Abstrakte Erignis-\/\+Routine. 
 
-\end{DoxyCompactItemize}
+Abstrakte Klasse für die minimale Definition einer Ereignisroutine in einer diskreten, eventgesteuerten Simulation. 
 
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Event\+Routine@{Event\+Routine}!Event\+Routine@{Event\+Routine}}
+\index{Event\+Routine@{Event\+Routine}!Event\+Routine@{Event\+Routine}}
+\subsubsection[{\texorpdfstring{Event\+Routine(\+Event\+Type type)}{EventRoutine(EventType type)}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+Routine\+::\+Event\+Routine (
+\begin{DoxyParamCaption}
+\item[{Event\+Type}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventRoutine_acd33ef6e5acc459719005276cc9c55e9}{}\label{classEventRoutine_acd33ef6e5acc459719005276cc9c55e9}
+
+
+Konstruktor. 
+
+Eine Routine besitzt immer einen spezifischen Typ, der von der Art der Simulation abhängig ist. Dieser Typ ermöglich der Simulationsschleife, die passende Routine zu einem \hyperlink{classEvent}{Event} zu finden. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Event\+Routine@{Event\+Routine}!execute@{execute}}
+\index{execute@{execute}!Event\+Routine@{Event\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)=0}{execute(Event *event)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Event\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{}\label{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}
+
+
+Funktionssignatur Ausführung einer Routine. 
+
+Abstrakte Funktion, die die Erwartungshaltung an alle implementierten Ereignisroutinen definiert. Das ermöglicht eine allgemeine Definition der Simulationsschleife ohne dass spezielle Wissen über die implementierten Ereignisroutinen notwendig ist.
+
+Muss von jeder spezialisierenden Klasse implementiert werden 
+
+Implementiert in \hyperlink{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}{Hinfahrt\+Patient\+Routine}, \hyperlink{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}{Neuer\+Notruf\+Routine}, \hyperlink{classEndeBehandlungRoutine_a462bdb38325bd4b5d550d4d9145e1558}{Ende\+Behandlung\+Routine}, \hyperlink{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}{Ankunft\+Patient\+Routine}, \hyperlink{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}{Rueckfahrt\+Routine}, \hyperlink{classAnkunftZentraleRoutine_ab6d6422067bb87d64f4973c68c6d796a}{Ankunft\+Zentrale\+Routine} und \hyperlink{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}{End\+Routine}.
+
+\index{Event\+Routine@{Event\+Routine}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Event\+Routine@{Event\+Routine}}
+\subsubsection[{\texorpdfstring{get\+Type()}{getType()}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+Type Event\+Routine\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEventRoutine_afcaf1409efcd2b6572b54c7a6fc02428}{}\label{classEventRoutine_afcaf1409efcd2b6572b54c7a6fc02428}
+
+
+Liefert Ereignistyp. 
+
+Fertig implementierte Funtkion zur Rückgabe des Eriegnistyps. 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
 \item 

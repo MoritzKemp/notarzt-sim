@@ -19,9 +19,9 @@ StateStorage::~StateStorage()
     //dtor
 }
 
-void StateStorage::saveState()
+void StateStorage::saveState(int simulationszeit)
 {
-    cout << "Current State:" << endl;
+    cout << "Current State at " << simulationszeit <<":" << endl;
 
 	//Handle registered emergencies
     list<Notfall*>::iterator iterNotfall = observedEmergencies.begin();
@@ -37,7 +37,7 @@ void StateStorage::saveState()
 		cout << ", place: " << currentNotfall->getPlace() << endl;
 
 		//Persist in database
-		storeNotfall(currentNotfall);
+		storeNotfall(currentNotfall, simulationszeit);
 
         iterNotfall++;
     }
@@ -55,7 +55,7 @@ void StateStorage::saveState()
 		cout << ", place: " << currentNotarzt->getNotarztPlace() << endl;
 
 		//Persist in database
-		storeNotarzt(currentNotarzt);
+		storeNotarzt(currentNotarzt, simulationszeit);
 
         iterNotarzt++;
     }
@@ -95,7 +95,7 @@ void StateStorage::dbconnect()
 	printf("Verbingung zur Datenbank herstellen... ");
 	conn = mysql_init(conn);
 	check_error();
-	mysql_real_connect(conn, "localhost", "root", "", "simulation", 0, NULL, 0);
+	mysql_real_connect(conn, "localhost", "root", "johannes", "simulation", 0, NULL, 0);
 	check_error();
 	printf("done\n");
 }
@@ -189,7 +189,7 @@ int StateStorage:: max_idNotfall()
 	return max;
 }
 	
-void StateStorage::storeNotarzt(Notarzt* notarzt)
+void StateStorage::storeNotarzt(Notarzt* notarzt, int simulationszeit)
 {
 	//neues Element der Datenbank hinzufuegen
 	int max = max_idNotarzt();
@@ -214,12 +214,14 @@ void StateStorage::storeNotarzt(Notarzt* notarzt)
 		nZustand = "behandlung";
 	}
 
-	string select = "INSERT INTO `simulation`.`notarzt` (`idNotarzt`, `Zeitpunkt`, `Zustand`) VALUES ('";
+	string select = "INSERT INTO `simulation`.`notarzt` VALUES ('";
 	select += to_string(max+1);
 	select += "', '";
 	select += to_string(notarzt->getTimestamp()); 
 	select += "', '";
 	select += nZustand;
+	select += "', '";
+	select += to_string(simulationszeit);
 	select += "')";
 	string query = select;
 
@@ -228,17 +230,19 @@ void StateStorage::storeNotarzt(Notarzt* notarzt)
 	strcpy(buffer, query.c_str());
 	mysql_real_query(conn, buffer, strlen(buffer));
 
+	//check_error();
+
 	// Speicherplatz wieder freigeben 
 	
 	free(buffer);
 }
 	
-void StateStorage::storeNotfall(Notfall* notfall)
+void StateStorage::storeNotfall(Notfall* notfall, int simulationszeit)
 {
 	//neues Element der Datenbank hinzufuegen
 	int max = max_idNotfall();
 
-	string select = "INSERT INTO `simulation`.`notfall` (`idNotfall`, `ZeitAnruf`, `Prio`, `Dauer`) VALUES ('";
+	string select = "INSERT INTO `simulation`.`notfall` VALUES ('";
 	select += to_string(max+1);
 	select += "', '";
 	select += to_string(notfall->getCallTime());
@@ -246,6 +250,12 @@ void StateStorage::storeNotfall(Notfall* notfall)
 	select += to_string(notfall->isUrgent());
 	select += "', '";
 	select += to_string(notfall->getTreatmentDuration());
+	select += "', '";
+	select += to_string(notfall->inTreatment());
+	select += "', '";
+	select += to_string(notfall->getTreatmentStart());
+	select += "', '";
+	select += to_string(simulationszeit);
 	select += "')";
 	string query = select;
 

@@ -1,5 +1,14 @@
 \hypertarget{classAnkunftPatientRoutine}{}\section{Ankunft\+Patient\+Routine Klassenreferenz}
 \label{classAnkunftPatientRoutine}\index{Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}}
+
+
+Routine für die Ankunft des Notarztes beim Patienten.  
+
+
+
+
+{\ttfamily \#include $<$Ankunft\+Patient\+Routine.\+h$>$}
+
 Klassendiagramm für Ankunft\+Patient\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,49 @@ Klassendiagramm für Ankunft\+Patient\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Ankunft\+Patient\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$arzt, \hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$warteschlange)\hypertarget{classAnkunftPatientRoutine_af9bd136552d3e2acd505620ca5164f58}{}\label{classAnkunftPatientRoutine_af9bd136552d3e2acd505620ca5164f58}
+\hyperlink{classAnkunftPatientRoutine_af9bd136552d3e2acd505620ca5164f58}{Ankunft\+Patient\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$arzt, \hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$warteschlange)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+void \hyperlink{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}{execute} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Spezifizierung der Zustandsänderungen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}{}\label{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}
 
-\end{DoxyCompactItemize}
+\subsection{Ausführliche Beschreibung}
+Routine für die Ankunft des Notarztes beim Patienten. 
+
+Diese Routine beschreibt die Zustandsänderungen in der Notarzt-\/\+Simulation wenn der \hyperlink{classNotarzt}{Notarzt} beim Patienten ankommt. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}!Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}}
+\index{Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}!Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}}
+\subsubsection[{\texorpdfstring{Ankunft\+Patient\+Routine(\+Notarzt $\ast$arzt, Event\+List $\ast$e\+List, Notfall\+Warteschlange $\ast$warteschlange)}{AnkunftPatientRoutine(Notarzt *arzt, EventList *eList, NotfallWarteschlange *warteschlange)}}]{\setlength{\rightskip}{0pt plus 5cm}Ankunft\+Patient\+Routine\+::\+Ankunft\+Patient\+Routine (
+\begin{DoxyParamCaption}
+\item[{{\bf Notarzt} $\ast$}]{arzt, }
+\item[{{\bf Event\+List} $\ast$}]{e\+List, }
+\item[{{\bf Notfall\+Warteschlange} $\ast$}]{warteschlange}
+\end{DoxyParamCaption}
+)}\hypertarget{classAnkunftPatientRoutine_af9bd136552d3e2acd505620ca5164f58}{}\label{classAnkunftPatientRoutine_af9bd136552d3e2acd505620ca5164f58}
+
+
+Konstruktor. 
+
+Abhängigkeiten werden injiziert und eine spezielle \hyperlink{classEventRoutine}{Event\+Routine} mit dem Event-\/\+Typ A\+N\+K\+U\+N\+F\+\_\+\+P\+A\+T\+I\+E\+NT wird erstellt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}!execute@{execute}}
+\index{execute@{execute}!Ankunft\+Patient\+Routine@{Ankunft\+Patient\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)}{execute(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ankunft\+Patient\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}{}\label{classAnkunftPatientRoutine_a42cdf97821606ce3d4f807b685f3a70d}
+
+
+Spezifizierung der Zustandsänderungen. 
+
+Die Ankunft des Notarztes beim Patienten verändert den Zustand des Notarztes und entfernt den zugehörigen \hyperlink{classNotfall}{Notfall}, der nun behandelt wird, aus der Notfall-\/\+Warteschlange. Ein neues \hyperlink{classEvent}{Event} für das Ende der Behandlung wird der Simulation hinzugefügt, der Zeitpunkt dieses Events entsprechend berechnet. 
+
+Implementiert \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{Event\+Routine}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

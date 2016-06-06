@@ -1,5 +1,14 @@
 \hypertarget{classSimObject}{}\section{Sim\+Object Klassenreferenz}
 \label{classSimObject}\index{Sim\+Object@{Sim\+Object}}
+
+
+Abstrakte Klasse für Zustands-\/\+Objekte der Simulation.  
+
+
+
+
+{\ttfamily \#include $<$Sim\+Object.\+h$>$}
+
 Klassendiagramm für Sim\+Object\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,9 +18,33 @@ Klassendiagramm für Sim\+Object\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-virtual void {\bfseries get\+State} ()=0\hypertarget{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}{}\label{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}
+virtual void \hyperlink{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}{get\+State} ()=0
+\begin{DoxyCompactList}\small\item\em Funktionssignatur für das Abspeichern des Objektes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Ausführliche Beschreibung}
+Abstrakte Klasse für Zustands-\/\+Objekte der Simulation. 
+
+Diese abtrakte Klasse definiert die Schnittstelle zu den Objekten einer Simulation, die in der Gesamtheit den Zustand der Simulation repräsentieren. Die Idee dahinter ist, dass das abspeichern der Zustände nach jedem Durchlauf der Simulationschleife unabhängig von der spezzifischen Implementierung ist. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Sim\+Object@{Sim\+Object}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Sim\+Object@{Sim\+Object}}
+\subsubsection[{\texorpdfstring{get\+State()=0}{getState()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Sim\+Object\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}{}\label{classSimObject_a3100e6db6c86456b79351c7e6a62ec65}
+
+
+Funktionssignatur für das Abspeichern des Objektes. 
+
+Diese Schnittstelle stellt die minimale Erwartunhshaltung an Zustands-\/\+Objekten innerhalb einer Simulation dar. Sie muss foglich von jedem speziellem Zustands-\/\+Objekt implementiert werden. Diese Funktion speichert den aktuellen Zustand des Objektes.
+
+T\+O\+DO Wird in der aktuellen Notarzt-\/\+Implementierung nicht verwendet. Die aktuelle Architektur lässt keine allgemeien Speicherung von Sim\+Objekten zu. 
+
+Implementiert in \hyperlink{classNotfall_a3c65c33128d0c504f22bbefa301a0c95}{Notfall} und \hyperlink{classNotarzt_a938d1d749b2741f3dc426e24a437c43c}{Notarzt}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

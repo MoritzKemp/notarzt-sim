@@ -22,17 +22,19 @@ AnkunftZentraleRoutine::~AnkunftZentraleRoutine()
 void AnkunftZentraleRoutine::execute(Event* event)
 {
 	std::cout << "Running routine for arrival at home" << std::endl;
-	// 1. Zustand vom Notarzt ändern
-	notarzt->setNotarztPlace(0);
-	notarzt->setNotarztState(NotarztStates::WARTEND);
-	notarzt->setTimestamp(event->getExecutionTime());
 
-	// 2. Entscheidung, ob direkt zum nächsten Notruf oder warten
+	// Entscheidung, ob direkt zum nächsten Notruf oder warten
 	Notfall* notfall = notfallWarteschlange->front();
 	if( notfall )
 	{
 		Event* newEvent = new Event(event->getExecutionTime(), EventType::ABFAHRT_ZU_PATIENT);
 		eventList->addEvent(newEvent);
+	} else
+	{
+		// Zustand vom Notarzt ändern
+		notarzt->setNotarztPlace(0);
+		notarzt->setNotarztState(NotarztStates::WARTEND);
+		notarzt->setTimestamp(event->getExecutionTime());
 	}
 	
 }

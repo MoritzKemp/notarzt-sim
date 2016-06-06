@@ -1,5 +1,14 @@
 \hypertarget{classHinfahrtPatientRoutine}{}\section{Hinfahrt\+Patient\+Routine Klassenreferenz}
 \label{classHinfahrtPatientRoutine}\index{Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}}
+
+
+Routine für den Beginn der Hinfahrt zum Patienten/\+Notfall.  
+
+
+
+
+{\ttfamily \#include $<$Hinfahrt\+Patient\+Routine.\+h$>$}
+
 Klassendiagramm für Hinfahrt\+Patient\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,50 @@ Klassendiagramm für Hinfahrt\+Patient\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Hinfahrt\+Patient\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$notarzt, \hyperlink{classEventList}{Event\+List} $\ast$event\+List, \hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$notfall\+Warteschlange, \hyperlink{classZufall}{Zufall} $\ast$random\+Generator)\hypertarget{classHinfahrtPatientRoutine_aef87b22e6bb463ec319534f2e33ba8be}{}\label{classHinfahrtPatientRoutine_aef87b22e6bb463ec319534f2e33ba8be}
+\hyperlink{classHinfahrtPatientRoutine_aef87b22e6bb463ec319534f2e33ba8be}{Hinfahrt\+Patient\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$notarzt, \hyperlink{classEventList}{Event\+List} $\ast$event\+List, \hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$notfall\+Warteschlange, \hyperlink{classZufall}{Zufall} $\ast$random\+Generator)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+void \hyperlink{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}{execute} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Spezifizierung der Zustandsänderungen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}{}\label{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}
 
-\end{DoxyCompactItemize}
+\subsection{Ausführliche Beschreibung}
+Routine für den Beginn der Hinfahrt zum Patienten/\+Notfall. 
+
+Diese Routine beschreibt die Zustandsänderungen in der Notarzt-\/\+Simulation wenn der \hyperlink{classNotarzt}{Notarzt} den Weg zum Patienten/\+Notfall einschlägt. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}!Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}}
+\index{Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}!Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}}
+\subsubsection[{\texorpdfstring{Hinfahrt\+Patient\+Routine(\+Notarzt $\ast$notarzt, Event\+List $\ast$event\+List, Notfall\+Warteschlange $\ast$notfall\+Warteschlange, Zufall $\ast$random\+Generator)}{HinfahrtPatientRoutine(Notarzt *notarzt, EventList *eventList, NotfallWarteschlange *notfallWarteschlange, Zufall *randomGenerator)}}]{\setlength{\rightskip}{0pt plus 5cm}Hinfahrt\+Patient\+Routine\+::\+Hinfahrt\+Patient\+Routine (
+\begin{DoxyParamCaption}
+\item[{{\bf Notarzt} $\ast$}]{notarzt, }
+\item[{{\bf Event\+List} $\ast$}]{event\+List, }
+\item[{{\bf Notfall\+Warteschlange} $\ast$}]{notfall\+Warteschlange, }
+\item[{{\bf Zufall} $\ast$}]{random\+Generator}
+\end{DoxyParamCaption}
+)}\hypertarget{classHinfahrtPatientRoutine_aef87b22e6bb463ec319534f2e33ba8be}{}\label{classHinfahrtPatientRoutine_aef87b22e6bb463ec319534f2e33ba8be}
+
+
+Konstruktor. 
+
+Abhängigkeiten werden injiziert und eine spezielle \hyperlink{classEventRoutine}{Event\+Routine} mit dem Event-\/\+Typ A\+B\+F\+A\+H\+R\+T\+\_\+\+Z\+U\+\_\+\+P\+A\+T\+I\+E\+NT wird erstellt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}!execute@{execute}}
+\index{execute@{execute}!Hinfahrt\+Patient\+Routine@{Hinfahrt\+Patient\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)}{execute(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Hinfahrt\+Patient\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}{}\label{classHinfahrtPatientRoutine_a95ee9981032536e15cad4bbe0fcb6903}
+
+
+Spezifizierung der Zustandsänderungen. 
+
+Das Losfahren des Notarztes zum Patienten verändert den Zustand des Notarztes und berechnet die die Ankunftzeit beim Patienten, um ein neues \hyperlink{classEvent}{Event} mit dem Typ A\+N\+K\+U\+N\+F\+T\+\_\+\+P\+A\+T\+I\+E\+NT zu erstellen. Die Berechnung der Ankunftzeit geht aus einer stochastisch ermittelten Fahrtzeit und der aktuellen Simulationszeit hervor. Zudem wird ein mögliches Ereignis gelöscht, das die Ankunft des Notarztes in der Zentrale ankündigt. Dies ist dann der Fall, wenn diese Routine aufgerufen wird, während sich der \hyperlink{classNotarzt}{Notarzt} auf dem Rückweg zur Zentrale befindet, also ein \hyperlink{classNotfall}{Notfall} mit hoher Priorität eingegangen ist. 
+
+Implementiert \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{Event\+Routine}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

@@ -2,23 +2,30 @@
 \label{classEvent}\index{Event@{Event}}
 
 
+Klasse für die Erstellung von Ereignissen.  
+
+
+
+
 {\ttfamily \#include $<$Event.\+h$>$}
 
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classEvent_ac7422ad6f411427e4d51cde6bcc51572}{Event} (int execution\+Time, Event\+Type type)
-\item 
-int {\bfseries get\+Execution\+Time} ()\hypertarget{classEvent_aa96b4d982f3330662aa94a03c2aa9df3}{}\label{classEvent_aa96b4d982f3330662aa94a03c2aa9df3}
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_aa96b4d982f3330662aa94a03c2aa9df3}{get\+Execution\+Time} ()\hypertarget{classEvent_aa96b4d982f3330662aa94a03c2aa9df3}{}\label{classEvent_aa96b4d982f3330662aa94a03c2aa9df3}
 
-\item 
-Event\+Type {\bfseries get\+Type} ()\hypertarget{classEvent_aceb1ddcf030da7877ab5c4bf38afb1dc}{}\label{classEvent_aceb1ddcf030da7877ab5c4bf38afb1dc}
+\begin{DoxyCompactList}\small\item\em Rückgabe der Ausführungszeit. \end{DoxyCompactList}\item 
+Event\+Type \hyperlink{classEvent_aceb1ddcf030da7877ab5c4bf38afb1dc}{get\+Type} ()\hypertarget{classEvent_aceb1ddcf030da7877ab5c4bf38afb1dc}{}\label{classEvent_aceb1ddcf030da7877ab5c4bf38afb1dc}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Rückgabe des Event-\/\+Types. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Ausführliche Beschreibung}
-Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation. 
+Klasse für die Erstellung von Ereignissen. 
+
+Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation.\+Implementierung eines Ereignisses (engl. \hyperlink{classEvent}{Event}) im Rahmen der diskreten, ereignisgesteuerten Simulation. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
 \index{Event@{Event}!Event@{Event}}
@@ -29,6 +36,12 @@ Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisge
 \item[{Event\+Type}]{t}
 \end{DoxyParamCaption}
 )}\hypertarget{classEvent_ac7422ad6f411427e4d51cde6bcc51572}{}\label{classEvent_ac7422ad6f411427e4d51cde6bcc51572}
+
+
+Konstruktor. 
+
+Erstellt ein Event-\/\+Objekt zur Verwendung innerhalb einer Simulation (bsp. durch das Hinzufügen zur \hyperlink{classEventList}{Event\+List}). Die Angabe von Ausführungszeit und Typ sind notwendig, um die Behandlung des Events im Rahmen der Simulationsschleife zu ermöglichen. Üblicherweise sollte es auch eine \hyperlink{classEventRoutine}{Event\+Routine} mit dem entsprechendem Typ existieren.
+
 Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation. 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

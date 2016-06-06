@@ -23,7 +23,7 @@ int main(int argv, char** argc)
 {
     //Initial simulation objects
     EventList* eventList = new EventList();
-    Notarzt* notarzt = new Notarzt(0, NotarztStates::WARTEND, 0);
+    Notarzt* notarzt = new Notarzt(NotarztStates::WARTEND, 0);
 
     //Initalize storage
     StateStorage* storage = new StateStorage();
@@ -81,7 +81,7 @@ int main(int argv, char** argc)
 		eventList, 
 		notfallWarteschlange
 	);
-    routines[6] = new EndRoutine(EventType::END);
+    routines[6] = new EndRoutine();
 
 
     SimulationManager* simulationManager = new SimulationManager(

@@ -66,16 +66,65 @@ $(function() {
 <div class="title">SimulationManager Klassenreferenz</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Steuert die Simulation.  
+ <a href="classSimulationManager.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SimulationManager_8h_source.html">SimulationManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Öffentliche Methoden</h2></td></tr>
-<tr class="memitem:a18663d0d7986354524b23a03a3ab85df"><td class="memItemLeft" align="right" valign="top"><a id="a18663d0d7986354524b23a03a3ab85df"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SimulationManager</b> (<a class="el" href="classEventList.html">EventList</a> *eList, <a class="el" href="classEventRoutine.html">EventRoutine</a> *roList[], int numRoutines, <a class="el" href="classStateStorage.html">StateStorage</a> *storage)</td></tr>
+<tr class="memitem:a18663d0d7986354524b23a03a3ab85df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationManager.html#a18663d0d7986354524b23a03a3ab85df">SimulationManager</a> (<a class="el" href="classEventList.html">EventList</a> *eList, <a class="el" href="classEventRoutine.html">EventRoutine</a> *roList[], int numRoutines, <a class="el" href="classStateStorage.html">StateStorage</a> *storage)</td></tr>
+<tr class="memdesc:a18663d0d7986354524b23a03a3ab85df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor.  <a href="#a18663d0d7986354524b23a03a3ab85df">Mehr ...</a><br /></td></tr>
 <tr class="separator:a18663d0d7986354524b23a03a3ab85df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01eb4300acb43110ca98ea8020d15cb9"><td class="memItemLeft" align="right" valign="top"><a id="a01eb4300acb43110ca98ea8020d15cb9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (<a class="el" href="classEvent.html">Event</a> *initlaEvents[], int sizeEvents, int endTime)</td></tr>
 <tr class="separator:a01eb4300acb43110ca98ea8020d15cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Steuert die Simulation. </p>
+<p>Objekte dieser Klasse sind verantwortlich für den grundsätlichen Ablauf einer diskreten, ereignisgesteuerten Simulation. Diese besteht aus eine Initialisierungspahse, wo die initale Ereignisliste mit den initialen Ereignissen gefüllt wird. Anschließend beginnt die Simulationsschleife zu laufen. </p>
+</div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a id="a18663d0d7986354524b23a03a3ab85df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimulationManager::SimulationManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEventList.html">EventList</a> *&#160;</td>
+          <td class="paramname"><em>eList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEventRoutine.html">EventRoutine</a> *&#160;</td>
+          <td class="paramname"><em>roList</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRoutines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStateStorage.html">StateStorage</a> *&#160;</td>
+          <td class="paramname"><em>storage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor. </p>
+
+</div>
+</div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/include/<a class="el" href="SimulationManager_8h_source.html">SimulationManager.h</a></li>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/src/SimulationManager.cpp</li>

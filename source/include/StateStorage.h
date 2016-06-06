@@ -13,7 +13,7 @@ class StateStorage
     public:
         StateStorage();
         virtual ~StateStorage();
-        void saveState();
+        void saveState(int simulationszeit);
         void registerNotfall(Notfall* notfall);
         void unregisterNotfall(Notfall* notfall);
         void registerNotarzt(Notarzt* notarzt);
@@ -24,8 +24,8 @@ class StateStorage
 		void dbtest();
 		int max_idNotarzt();
 		int max_idNotfall();
-		void storeNotarzt(Notarzt* notarzt);
-		void storeNotfall(Notfall* notfall);
+		void storeNotarzt(Notarzt* notarzt, int simulationszeit);
+		void storeNotfall(Notfall* notfall, int simulationszeit);
 
     private:
 		MYSQL *conn;

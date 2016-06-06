@@ -1,7 +1,8 @@
 #include "EndRoutine.h"
+#include "EventType.h"
 #include <iostream>
 
-EndRoutine::EndRoutine(EventType t) : EventRoutine(t)
+EndRoutine::EndRoutine() : EventRoutine(EventType::END)
 {}
 
 EndRoutine::~EndRoutine()

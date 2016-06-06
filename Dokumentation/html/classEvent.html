@@ -67,21 +67,28 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Klasse für die Erstellung von Ereignissen.  
+ <a href="classEvent.html#details">Mehr ...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Event_8h_source.html">Event.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Öffentliche Methoden</h2></td></tr>
 <tr class="memitem:ac7422ad6f411427e4d51cde6bcc51572"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#ac7422ad6f411427e4d51cde6bcc51572">Event</a> (int executionTime, EventType type)</td></tr>
+<tr class="memdesc:ac7422ad6f411427e4d51cde6bcc51572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor.  <a href="#ac7422ad6f411427e4d51cde6bcc51572">Mehr ...</a><br /></td></tr>
 <tr class="separator:ac7422ad6f411427e4d51cde6bcc51572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa96b4d982f3330662aa94a03c2aa9df3"><td class="memItemLeft" align="right" valign="top"><a id="aa96b4d982f3330662aa94a03c2aa9df3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getExecutionTime</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#aa96b4d982f3330662aa94a03c2aa9df3">getExecutionTime</a> ()</td></tr>
+<tr class="memdesc:aa96b4d982f3330662aa94a03c2aa9df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rückgabe der Ausführungszeit. <br /></td></tr>
 <tr class="separator:aa96b4d982f3330662aa94a03c2aa9df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb1ddcf030da7877ab5c4bf38afb1dc"><td class="memItemLeft" align="right" valign="top"><a id="aceb1ddcf030da7877ab5c4bf38afb1dc"></a>
-EventType&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> ()</td></tr>
+EventType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#aceb1ddcf030da7877ab5c4bf38afb1dc">getType</a> ()</td></tr>
+<tr class="memdesc:aceb1ddcf030da7877ab5c4bf38afb1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rückgabe des Event-Types. <br /></td></tr>
 <tr class="separator:aceb1ddcf030da7877ab5c4bf38afb1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation. </p>
+<div class="textblock"><p>Klasse für die Erstellung von Ereignissen. </p>
+<p>Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation.Implementierung eines Ereignisses (engl. <a class="el" href="classEvent.html" title="Klasse für die Erstellung von Ereignissen. ">Event</a>) im Rahmen der diskreten, ereignisgesteuerten Simulation. </p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a id="ac7422ad6f411427e4d51cde6bcc51572"></a>
 <div class="memitem">
@@ -106,6 +113,9 @@ EventType&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> ()</
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Konstruktor. </p>
+<p>Erstellt ein Event-Objekt zur Verwendung innerhalb einer Simulation (bsp. durch das Hinzufügen zur <a class="el" href="classEventList.html" title="Verwaltet Ereignisse. ">EventList</a>). Die Angabe von Ausführungszeit und Typ sind notwendig, um die Behandlung des Events im Rahmen der Simulationsschleife zu ermöglichen. Üblicherweise sollte es auch eine <a class="el" href="classEventRoutine.html" title="Abstrakte Erignis-Routine. ">EventRoutine</a> mit dem entsprechendem Typ existieren.</p>
 <p>Implementierung eines allgemeinen Ereignises im Rahmen der diskreten, ereignisgesteureten Simulation. </p>
 
 </div>

@@ -1,14 +1,44 @@
 \hypertarget{classSimulationManager}{}\section{Simulation\+Manager Klassenreferenz}
 \label{classSimulationManager}\index{Simulation\+Manager@{Simulation\+Manager}}
+
+
+Steuert die Simulation.  
+
+
+
+
+{\ttfamily \#include $<$Simulation\+Manager.\+h$>$}
+
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Simulation\+Manager} (\hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classEventRoutine}{Event\+Routine} $\ast$ro\+List\mbox{[}$\,$\mbox{]}, int num\+Routines, \hyperlink{classStateStorage}{State\+Storage} $\ast$storage)\hypertarget{classSimulationManager_a18663d0d7986354524b23a03a3ab85df}{}\label{classSimulationManager_a18663d0d7986354524b23a03a3ab85df}
-
-\item 
+\hyperlink{classSimulationManager_a18663d0d7986354524b23a03a3ab85df}{Simulation\+Manager} (\hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classEventRoutine}{Event\+Routine} $\ast$ro\+List\mbox{[}$\,$\mbox{]}, int num\+Routines, \hyperlink{classStateStorage}{State\+Storage} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
 void {\bfseries run} (\hyperlink{classEvent}{Event} $\ast$initla\+Events\mbox{[}$\,$\mbox{]}, int size\+Events, int end\+Time)\hypertarget{classSimulationManager_a01eb4300acb43110ca98ea8020d15cb9}{}\label{classSimulationManager_a01eb4300acb43110ca98ea8020d15cb9}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Steuert die Simulation. 
+
+Objekte dieser Klasse sind verantwortlich für den grundsätlichen Ablauf einer diskreten, ereignisgesteuerten Simulation. Diese besteht aus eine Initialisierungspahse, wo die initale Ereignisliste mit den initialen Ereignissen gefüllt wird. Anschließend beginnt die Simulationsschleife zu laufen. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Simulation\+Manager@{Simulation\+Manager}!Simulation\+Manager@{Simulation\+Manager}}
+\index{Simulation\+Manager@{Simulation\+Manager}!Simulation\+Manager@{Simulation\+Manager}}
+\subsubsection[{\texorpdfstring{Simulation\+Manager(\+Event\+List $\ast$e\+List, Event\+Routine $\ast$ro\+List[], int num\+Routines, State\+Storage $\ast$storage)}{SimulationManager(EventList *eList, EventRoutine *roList[], int numRoutines, StateStorage *storage)}}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\+Manager\+::\+Simulation\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\+List} $\ast$}]{e\+List, }
+\item[{{\bf Event\+Routine} $\ast$}]{ro\+List\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{num\+Routines, }
+\item[{{\bf State\+Storage} $\ast$}]{storage}
+\end{DoxyParamCaption}
+)}\hypertarget{classSimulationManager_a18663d0d7986354524b23a03a3ab85df}{}\label{classSimulationManager_a18663d0d7986354524b23a03a3ab85df}
+
+
+Konstruktor. 
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

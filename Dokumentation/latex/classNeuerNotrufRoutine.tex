@@ -1,5 +1,14 @@
 \hypertarget{classNeuerNotrufRoutine}{}\section{Neuer\+Notruf\+Routine Klassenreferenz}
 \label{classNeuerNotrufRoutine}\index{Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}}
+
+
+Routine für den Eingang eines Notrufes.  
+
+
+
+
+{\ttfamily \#include $<$Neuer\+Notruf\+Routine.\+h$>$}
+
 Klassendiagramm für Neuer\+Notruf\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,50 @@ Klassendiagramm für Neuer\+Notruf\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Neuer\+Notruf\+Routine} (\hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$n, \hyperlink{classNotarzt}{Notarzt} $\ast$arzt, \hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classZufall}{Zufall} $\ast$random\+Gen)\hypertarget{classNeuerNotrufRoutine_a80f789ceb242c142833658db7f28a686}{}\label{classNeuerNotrufRoutine_a80f789ceb242c142833658db7f28a686}
+\hyperlink{classNeuerNotrufRoutine_a80f789ceb242c142833658db7f28a686}{Neuer\+Notruf\+Routine} (\hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} $\ast$n, \hyperlink{classNotarzt}{Notarzt} $\ast$arzt, \hyperlink{classEventList}{Event\+List} $\ast$e\+List, \hyperlink{classZufall}{Zufall} $\ast$random\+Gen)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+void \hyperlink{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}{execute} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Spezifizierung der Zustandsänderungen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}{}\label{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}
 
-\end{DoxyCompactItemize}
+\subsection{Ausführliche Beschreibung}
+Routine für den Eingang eines Notrufes. 
+
+Diese Routine beschreibt die Zustandsänderungen in der Notarzt-\/\+Simulation wenn ein neuer \hyperlink{classNotfall}{Notfall} in der Zentrale eintrifft. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}!Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}}
+\index{Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}!Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}}
+\subsubsection[{\texorpdfstring{Neuer\+Notruf\+Routine(\+Notfall\+Warteschlange $\ast$n, Notarzt $\ast$arzt, Event\+List $\ast$e\+List, Zufall $\ast$random\+Gen)}{NeuerNotrufRoutine(NotfallWarteschlange *n, Notarzt *arzt, EventList *eList, Zufall *randomGen)}}]{\setlength{\rightskip}{0pt plus 5cm}Neuer\+Notruf\+Routine\+::\+Neuer\+Notruf\+Routine (
+\begin{DoxyParamCaption}
+\item[{{\bf Notfall\+Warteschlange} $\ast$}]{n, }
+\item[{{\bf Notarzt} $\ast$}]{arzt, }
+\item[{{\bf Event\+List} $\ast$}]{e\+List, }
+\item[{{\bf Zufall} $\ast$}]{random\+Gen}
+\end{DoxyParamCaption}
+)}\hypertarget{classNeuerNotrufRoutine_a80f789ceb242c142833658db7f28a686}{}\label{classNeuerNotrufRoutine_a80f789ceb242c142833658db7f28a686}
+
+
+Konstruktor. 
+
+Abhängigkeiten werden injiziert und eine spezielle \hyperlink{classEventRoutine}{Event\+Routine} mit dem Event-\/\+Typ N\+E\+U\+E\+R\+\_\+\+N\+O\+T\+R\+UF wird erstellt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}!execute@{execute}}
+\index{execute@{execute}!Neuer\+Notruf\+Routine@{Neuer\+Notruf\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)}{execute(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Neuer\+Notruf\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}{}\label{classNeuerNotrufRoutine_af2d883cecce5e012c9332c933c1cb10f}
+
+
+Spezifizierung der Zustandsänderungen. 
+
+Trifft ein neuer Notruf in der Zentrale ein, so muss ein neuer \hyperlink{classNotfall}{Notfall} erstellt werden und der Simulation hinzugefügt werden, indem der \hyperlink{classNotfall}{Notfall} der \hyperlink{classNotfallWarteschlange}{Notfall\+Warteschlange} hinzugefügt wird. Die für die Erstellung eines \hyperlink{classNotfall}{Notfall} benötigten Attribute werden stochastisch ermittelt. Des weiteren wird der akutelle Zustand des Notarztes überprüft und möglicherweise ein \hyperlink{classEvent}{Event} generiert, dass den \hyperlink{classNotarzt}{Notarzt} anweist, den aktuellen \hyperlink{classNotfall}{Notfall} zu behandeln. 
+
+Implementiert \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{Event\+Routine}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

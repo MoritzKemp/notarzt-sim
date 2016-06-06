@@ -66,21 +66,26 @@ $(function() {
 <div class="title">Notarzt Klassenreferenz</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Repräsentiert einen <a class="el" href="classNotarzt.html" title="Repräsentiert einen Notarzt. ">Notarzt</a>.  
+ <a href="classNotarzt.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Notarzt_8h_source.html">Notarzt.h</a>&gt;</code></p>
 <div class="dynheader">
 Klassendiagramm für Notarzt:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classNotarzt.png" usemap="#Notarzt_map" alt=""/>
   <map id="Notarzt_map" name="Notarzt_map">
-<area href="classSimObject.html" alt="SimObject" shape="rect" coords="0,0,69,24"/>
+<area href="classSimObject.html" title="Abstrakte Klasse für Zustands-Objekte der Simulation. " alt="SimObject" shape="rect" coords="0,0,69,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Öffentliche Methoden</h2></td></tr>
-<tr class="memitem:a6b1615d76bbe776b0cba25d5ad6d5f8e"><td class="memItemLeft" align="right" valign="top"><a id="a6b1615d76bbe776b0cba25d5ad6d5f8e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Notarzt</b> (int time, NotarztStates state, int place)</td></tr>
-<tr class="separator:a6b1615d76bbe776b0cba25d5ad6d5f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90cdea1ef049791cf09cd6d1e9f8399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotarzt.html#af90cdea1ef049791cf09cd6d1e9f8399">Notarzt</a> (NotarztStates state, int place)</td></tr>
+<tr class="memdesc:af90cdea1ef049791cf09cd6d1e9f8399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor.  <a href="#af90cdea1ef049791cf09cd6d1e9f8399">Mehr ...</a><br /></td></tr>
+<tr class="separator:af90cdea1ef049791cf09cd6d1e9f8399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af94182cd4fc47929260c9ce3e129028f"><td class="memItemLeft" align="right" valign="top"><a id="af94182cd4fc47929260c9ce3e129028f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getTimestamp</b> ()</td></tr>
 <tr class="separator:af94182cd4fc47929260c9ce3e129028f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,10 +104,73 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setNotarztState</b> (
 <tr class="memitem:a3ccdfae8cbaebbe4d0ff049f05e78016"><td class="memItemLeft" align="right" valign="top"><a id="a3ccdfae8cbaebbe4d0ff049f05e78016"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setNotarztPlace</b> (int newPlace)</td></tr>
 <tr class="separator:a3ccdfae8cbaebbe4d0ff049f05e78016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a938d1d749b2741f3dc426e24a437c43c"><td class="memItemLeft" align="right" valign="top"><a id="a938d1d749b2741f3dc426e24a437c43c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td></tr>
+<tr class="memitem:a938d1d749b2741f3dc426e24a437c43c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotarzt.html#a938d1d749b2741f3dc426e24a437c43c">getState</a> ()</td></tr>
+<tr class="memdesc:a938d1d749b2741f3dc426e24a437c43c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktionssignatur für das Abspeichern des Objektes.  <a href="#a938d1d749b2741f3dc426e24a437c43c">Mehr ...</a><br /></td></tr>
 <tr class="separator:a938d1d749b2741f3dc426e24a437c43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Repräsentiert einen <a class="el" href="classNotarzt.html" title="Repräsentiert einen Notarzt. ">Notarzt</a>. </p>
+<p>Klasse für die Erstellung von Notarzt-Objekten, die in der Notarzt-Simulation verwendet werden können. Der <a class="el" href="classNotarzt.html" title="Repräsentiert einen Notarzt. ">Notarzt</a> besitzt keine eigen Logik sondern repräsentiert immer nur einen bestimmten Zustand des Notarztes in der Notarzt-Simulation. </p>
+</div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a id="af90cdea1ef049791cf09cd6d1e9f8399"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Notarzt::Notarzt </td>
+          <td>(</td>
+          <td class="paramtype">NotarztStates&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>place</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor. </p>
+<p>Mit den gegebene Parametern wird der Anfangszustand des Notarztes in der Notarzt-Simulation defniert. Timestamp wird initial immer auf 0 gesetzt. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a id="a938d1d749b2741f3dc426e24a437c43c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Notarzt::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Funktionssignatur für das Abspeichern des Objektes. </p>
+<p>Diese Schnittstelle stellt die minimale Erwartunhshaltung an Zustands-Objekten innerhalb einer Simulation dar. Sie muss foglich von jedem speziellem Zustands-Objekt implementiert werden. Diese Funktion speichert den aktuellen Zustand des Objektes.</p>
+<p>TODO Wird in der aktuellen Notarzt-Implementierung nicht verwendet. Die aktuelle Architektur lässt keine allgemeien Speicherung von SimObjekten zu. </p>
+
+<p>Implementiert <a class="el" href="classSimObject.html#a3100e6db6c86456b79351c7e6a62ec65">SimObject</a>.</p>
+
+</div>
+</div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/include/<a class="el" href="Notarzt_8h_source.html">Notarzt.h</a></li>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/src/Notarzt.cpp</li>

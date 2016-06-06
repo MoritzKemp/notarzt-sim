@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `notarzt` (
   `idNotarzt` int(11) NOT NULL,
   `Zeitpunkt` int(11) NOT NULL,
-  `Zustand` text NOT NULL
+  `Zustand` text NOT NULL,
+  `Simulationszeit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,8 +43,14 @@ CREATE TABLE IF NOT EXISTS `notfall` (
   `idNotfall` int(11) NOT NULL,
   `ZeitAnruf` int(11) NOT NULL,
   `Prio` int(11) NOT NULL,
-  `Dauer` int(11) NOT NULL
+  `Dauer` int(11) NOT NULL,
+  `Behandlung` int(11) NOT NULL, 
+  `StartBehandlung` int(11) NOT NULL,
+  `Simulationszeit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO notarzt VALUES(0, 0, 'dummy', -1);
+INSERT INTO notfall VALUES(0, 0, 0, 0, 0, -1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -24,7 +24,10 @@ void EndeBehandlungRoutine::execute(Event* event)
 {
 	cout << "Running routine for finish treatment" << endl;
 	
-	// 1. Entscheidung, ob zurück zur Zentrale oder zu neuem Notfall
+	// 1. Entferne behandelten Notfall
+	notfallWarteschlange->pop();
+		
+	// 2. Entscheidung, ob zurück zur Zentrale oder zu neuem Notfall
 	Notfall* notfall = notfallWarteschlange->front();
 	Event* newEvent;
 	if( notfall )

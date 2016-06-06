@@ -66,23 +66,61 @@ $(function() {
 <div class="title">SimObject Klassenreferenz<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstrakte Klasse für Zustands-Objekte der Simulation.  
+ <a href="classSimObject.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SimObject_8h_source.html">SimObject.h</a>&gt;</code></p>
 <div class="dynheader">
 Klassendiagramm für SimObject:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classSimObject.png" usemap="#SimObject_map" alt=""/>
   <map id="SimObject_map" name="SimObject_map">
-<area href="classNotarzt.html" alt="Notarzt" shape="rect" coords="0,56,69,80"/>
-<area href="classNotfall.html" alt="Notfall" shape="rect" coords="79,56,148,80"/>
+<area href="classNotarzt.html" title="Repräsentiert einen Notarzt. " alt="Notarzt" shape="rect" coords="0,56,69,80"/>
+<area href="classNotfall.html" title="Repräsentiert einen Notfall. " alt="Notfall" shape="rect" coords="79,56,148,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Öffentliche Methoden</h2></td></tr>
-<tr class="memitem:a3100e6db6c86456b79351c7e6a62ec65"><td class="memItemLeft" align="right" valign="top"><a id="a3100e6db6c86456b79351c7e6a62ec65"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()=0</td></tr>
+<tr class="memitem:a3100e6db6c86456b79351c7e6a62ec65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimObject.html#a3100e6db6c86456b79351c7e6a62ec65">getState</a> ()=0</td></tr>
+<tr class="memdesc:a3100e6db6c86456b79351c7e6a62ec65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktionssignatur für das Abspeichern des Objektes.  <a href="#a3100e6db6c86456b79351c7e6a62ec65">Mehr ...</a><br /></td></tr>
 <tr class="separator:a3100e6db6c86456b79351c7e6a62ec65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Abstrakte Klasse für Zustands-Objekte der Simulation. </p>
+<p>Diese abtrakte Klasse definiert die Schnittstelle zu den Objekten einer Simulation, die in der Gesamtheit den Zustand der Simulation repräsentieren. Die Idee dahinter ist, dass das abspeichern der Zustände nach jedem Durchlauf der Simulationschleife unabhängig von der spezzifischen Implementierung ist. </p>
+</div><h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a id="a3100e6db6c86456b79351c7e6a62ec65"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SimObject::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Funktionssignatur für das Abspeichern des Objektes. </p>
+<p>Diese Schnittstelle stellt die minimale Erwartunhshaltung an Zustands-Objekten innerhalb einer Simulation dar. Sie muss foglich von jedem speziellem Zustands-Objekt implementiert werden. Diese Funktion speichert den aktuellen Zustand des Objektes.</p>
+<p>TODO Wird in der aktuellen Notarzt-Implementierung nicht verwendet. Die aktuelle Architektur lässt keine allgemeien Speicherung von SimObjekten zu. </p>
+
+<p>Implementiert in <a class="el" href="classNotfall.html#a3c65c33128d0c504f22bbefa301a0c95">Notfall</a> und <a class="el" href="classNotarzt.html#a938d1d749b2741f3dc426e24a437c43c">Notarzt</a>.</p>
+
+</div>
+</div>
 <hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/include/<a class="el" href="SimObject_8h_source.html">SimObject.h</a></li>
 <li>/home/mkemp/Studium/DiskreteSimulation/notarzt-sim/source/src/SimObject.cpp</li>

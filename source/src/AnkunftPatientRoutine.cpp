@@ -25,8 +25,9 @@ void AnkunftPatientRoutine::execute(Event* event)
     cout << "Running routine for arrival at patient." << endl;
     // 1. Setzte Ereignis für das Ende der Behandlung
     // 1.1 Hole den Notruf, der behandelt wird.
-    // Gleichzeitiges Entfernen des Notfalls
-    Notfall* behandelterNotfall = notfallWarteschlange->pop();
+    Notfall* behandelterNotfall = notfallWarteschlange->front();
+	behandelterNotfall->setInTreatment(1);
+	behandelterNotfall->setTreatmentStart( event->getExecutionTime() );
 
     // 1.2 Berechne den Zeitpunkt des Behandlungsende
     int zeitBehandlungsende = event->getExecutionTime() + behandelterNotfall->getTreatmentDuration();

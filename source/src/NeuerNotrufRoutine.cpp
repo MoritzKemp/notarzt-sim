@@ -43,10 +43,12 @@ void NeuerNotrufRoutine::execute(Event* event)
 	cout << "-- Add emergency to list" << endl;
 
     //Überprüfe, ob Arzt auf Rückweg oder Wartend ist. Wenn ja, dann füge
-    //ein Event zur Hinfahrt zum Patienten hinzu, das augeblicklich passiert
+    //ein Event zur Hinfahrt zum Patienten hinzu, das augeblicklich passiert.
+    // Das gleiche gilt, wenn der Arzt auf dem Rückweg ist und der Notfall eine
+    // hohe Priorität besitzt.
     if(
         notarzt->getNotarztState() == NotarztStates::WARTEND
-        || notarzt->getNotarztState() == NotarztStates::UNTERWEGS_ZENTRALE
+        || (notarzt->getNotarztState() == NotarztStates::UNTERWEGS_ZENTRALE && neuerNotfall->isUrgent() == 1)
     ){
 
         Event* newEvent = new Event(event->getExecutionTime(), EventType::ABFAHRT_ZU_PATIENT);

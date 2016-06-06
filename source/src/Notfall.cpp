@@ -8,6 +8,8 @@ Notfall::Notfall(int cTime, int p, int duration, int pl)
     prio = p;
     treatmentDuration = duration;
 	place = pl;
+	isInTreatment = 0;
+	treatmentTime = 0;
 }
 
 Notfall::~Notfall()
@@ -33,6 +35,26 @@ int Notfall::getTreatmentDuration()
 int Notfall::getPlace()
 {
 	return place;
+}
+
+int Notfall::inTreatment()
+{
+	return isInTreatment;
+}
+
+void Notfall::setInTreatment(int treatment)
+{
+	isInTreatment = treatment;
+}
+
+int Notfall::getTreatmentStart()
+{
+	return treatmentTime;
+}
+
+void Notfall::setTreatmentStart(int time)
+{
+	treatmentTime = time;
 }
 
 void Notfall::getState()

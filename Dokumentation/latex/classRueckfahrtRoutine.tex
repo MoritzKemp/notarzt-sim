@@ -1,5 +1,14 @@
 \hypertarget{classRueckfahrtRoutine}{}\section{Rueckfahrt\+Routine Klassenreferenz}
 \label{classRueckfahrtRoutine}\index{Rueckfahrt\+Routine@{Rueckfahrt\+Routine}}
+
+
+Routine für die Rückfahrt zur Zentrale.  
+
+
+
+
+{\ttfamily \#include $<$Rueckfahrt\+Routine.\+h$>$}
+
 Klassendiagramm für Rueckfahrt\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,49 @@ Klassendiagramm für Rueckfahrt\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Rueckfahrt\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$notarzt, \hyperlink{classEventList}{Event\+List} $\ast$event\+List, \hyperlink{classZufall}{Zufall} $\ast$random\+Generator)\hypertarget{classRueckfahrtRoutine_af906605c22d0d8fd2d002f4fa165afee}{}\label{classRueckfahrtRoutine_af906605c22d0d8fd2d002f4fa165afee}
+\hyperlink{classRueckfahrtRoutine_af906605c22d0d8fd2d002f4fa165afee}{Rueckfahrt\+Routine} (\hyperlink{classNotarzt}{Notarzt} $\ast$notarzt, \hyperlink{classEventList}{Event\+List} $\ast$event\+List, \hyperlink{classZufall}{Zufall} $\ast$random\+Generator)
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+void \hyperlink{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}{execute} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Spezifizierung der Zustandsänderungen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}{}\label{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}
 
-\end{DoxyCompactItemize}
+\subsection{Ausführliche Beschreibung}
+Routine für die Rückfahrt zur Zentrale. 
+
+Diese Routine beschreibt die Zustandsänderungen in der Notarzt-\/\+Simulation wenn der \hyperlink{classNotarzt}{Notarzt} sich auf den Weg zurück zur Zentrale macht. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\index{Rueckfahrt\+Routine@{Rueckfahrt\+Routine}!Rueckfahrt\+Routine@{Rueckfahrt\+Routine}}
+\index{Rueckfahrt\+Routine@{Rueckfahrt\+Routine}!Rueckfahrt\+Routine@{Rueckfahrt\+Routine}}
+\subsubsection[{\texorpdfstring{Rueckfahrt\+Routine(\+Notarzt $\ast$notarzt, Event\+List $\ast$event\+List, Zufall $\ast$random\+Generator)}{RueckfahrtRoutine(Notarzt *notarzt, EventList *eventList, Zufall *randomGenerator)}}]{\setlength{\rightskip}{0pt plus 5cm}Rueckfahrt\+Routine\+::\+Rueckfahrt\+Routine (
+\begin{DoxyParamCaption}
+\item[{{\bf Notarzt} $\ast$}]{notarzt, }
+\item[{{\bf Event\+List} $\ast$}]{event\+List, }
+\item[{{\bf Zufall} $\ast$}]{random\+Generator}
+\end{DoxyParamCaption}
+)}\hypertarget{classRueckfahrtRoutine_af906605c22d0d8fd2d002f4fa165afee}{}\label{classRueckfahrtRoutine_af906605c22d0d8fd2d002f4fa165afee}
+
+
+Konstruktor. 
+
+Abhängigkeiten werden injiziert und eine spezielle \hyperlink{classEventRoutine}{Event\+Routine} mit dem Event-\/\+Typ A\+B\+F\+A\+H\+R\+T\+\_\+\+Z\+U\+\_\+\+Z\+E\+N\+T\+R\+A\+LE wird erstellt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{Rueckfahrt\+Routine@{Rueckfahrt\+Routine}!execute@{execute}}
+\index{execute@{execute}!Rueckfahrt\+Routine@{Rueckfahrt\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)}{execute(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Rueckfahrt\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}{}\label{classRueckfahrtRoutine_a7eec059994f3c958696697df05cfefe9}
+
+
+Spezifizierung der Zustandsänderungen. 
+
+Die Rückfahrt des Arztes zur Zentrale ändert den Zustand des Notarztes und generiert ein neues \hyperlink{classEvent}{Event}, dass die Ankunft des Arztes in der Zentrale ankündigt. Der Zeitpunkt, wann der Arzt in der Zentrale ankommt, wird aus der stochastisch ermittelten Fahrtzeit und der aktuellen Simulationszeit berechnet. 
+
+Implementiert \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{Event\+Routine}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

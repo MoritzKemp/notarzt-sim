@@ -1,5 +1,14 @@
 \hypertarget{classEndRoutine}{}\section{End\+Routine Klassenreferenz}
 \label{classEndRoutine}\index{End\+Routine@{End\+Routine}}
+
+
+Routine für das Ende der Simulation.  
+
+
+
+
+{\ttfamily \#include $<$End\+Routine.\+h$>$}
+
 Klassendiagramm für End\+Routine\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,34 @@ Klassendiagramm für End\+Routine\+:\begin{figure}[H]
 \subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries End\+Routine} (Event\+Type t)\hypertarget{classEndRoutine_af6bdd3a9c499fcb62ebdd24758763eb8}{}\label{classEndRoutine_af6bdd3a9c499fcb62ebdd24758763eb8}
+\hyperlink{classEndRoutine_a3baa17a59698cc3bc695c7d9a2a85be1}{End\+Routine} ()\hypertarget{classEndRoutine_a3baa17a59698cc3bc695c7d9a2a85be1}{}\label{classEndRoutine_a3baa17a59698cc3bc695c7d9a2a85be1}
 
-\item 
-void {\bfseries execute} (\hyperlink{classEvent}{Event} $\ast$event)\hypertarget{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}{}\label{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}
+\begin{DoxyCompactList}\small\item\em Konstruktor Erstellt eine spzeielle \hyperlink{classEventRoutine}{Event\+Routine} mit dem Event-\/\+Typ E\+N\+DE. \end{DoxyCompactList}\item 
+void \hyperlink{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}{execute} (\hyperlink{classEvent}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Spezifizierung der Zustandsänderungen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Ausführliche Beschreibung}
+Routine für das Ende der Simulation. 
+
+Diese Routine verändert keine Objekte in der Simulation sondern dient der Kontrolle der Simulationsschleife. Die Simulationsschleife bricht ab (und beendet somit die Simulation) sobald diese Routine ausgeführt werden soll. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\index{End\+Routine@{End\+Routine}!execute@{execute}}
+\index{execute@{execute}!End\+Routine@{End\+Routine}}
+\subsubsection[{\texorpdfstring{execute(\+Event $\ast$event)}{execute(Event *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void End\+Routine\+::execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}{}\label{classEndRoutine_a147e1143dfec1d3fb4a58d3a6efd6641}
+
+
+Spezifizierung der Zustandsänderungen. 
+
+Keine Änderung an Objekten der Simulation. 
+
+Implementiert \hyperlink{classEventRoutine_aede9b0fdb576a4a262ced2d7d6548c14}{Event\+Routine}.
+
 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}

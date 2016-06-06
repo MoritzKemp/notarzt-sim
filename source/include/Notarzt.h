@@ -5,11 +5,24 @@
 #include <NotarztPlace.h>
 #include <NotarztStates.h>
 
-
+/** \brief Repräsentiert einen Notarzt
+ *
+ * Klasse für die Erstellung von Notarzt-Objekten,
+ * die in der Notarzt-Simulation verwendet werden können.
+ * Der Notarzt besitzt keine eigen Logik sondern repräsentiert
+ * immer nur einen bestimmten Zustand des Notarztes in der
+ * Notarzt-Simulation.
+ */
 class Notarzt : public SimObject
 {
     public:
-        Notarzt(int time, NotarztStates state, int place);
+		/** \brief Konstruktor
+ 		 *	
+ 		 * Mit den gegebene Parametern wird der Anfangszustand
+ 		 * des Notarztes in der Notarzt-Simulation defniert.
+ 		 * Timestamp wird initial immer auf 0 gesetzt.
+ 		 */
+        Notarzt(NotarztStates state, int place);
         virtual ~Notarzt();
         int getTimestamp();
         NotarztStates getNotarztState();
