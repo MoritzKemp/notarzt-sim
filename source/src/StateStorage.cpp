@@ -95,7 +95,7 @@ void StateStorage::dbconnect()
 	printf("Verbingung zur Datenbank herstellen... ");
 	conn = mysql_init(conn);
 	check_error();
-	mysql_real_connect(conn, "localhost", "root", "johannes", "simulation", 0, NULL, 0);
+	mysql_real_connect(conn, "localhost", "root", "", "simulation", 0, NULL, 0);
 	check_error();
 	printf("done\n");
 }
