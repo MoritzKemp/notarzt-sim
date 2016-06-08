@@ -214,6 +214,10 @@ void StateStorage::storeNotarzt(Notarzt* notarzt, int simulationszeit)
 		nZustand = "behandlung";
 	}
 
+
+
+
+
 	string select = "INSERT INTO `simulation`.`notarzt` VALUES ('";
 	select += to_string(max+1);
 	select += "', '";
@@ -268,4 +272,127 @@ void StateStorage::storeNotfall(Notfall* notfall, int simulationszeit)
 	free(buffer);
 	
 }
+
+void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int* prio)
+{
+
+	MYSQL_ROW  row;
+	MYSQL_RES  *mysql_res;
+
+	string query = "SELECT * FROM notfall WHERE idNotfall =";
+	query+= to_string(id);
+
+	/* jetzt die Anfrage an den Datenbankserver */
+	char * buffer = new char[query.length()+1];
+	strcpy(buffer, query.c_str());
+	mysql_real_query(conn, buffer, strlen(buffer));
+
+	/* Daten der Anfrage abholen */
+	mysql_res = mysql_store_result(conn);
+
+	row = mysql_fetch_row (mysql_res);
+	*zeitAnruf = atoi(row[1]);
+	*prio = atoi(row[2]);
+	*startBehandlung = atoi(row[5]);
+
+
+	/* Speicherplatz wieder freigeben */
+	mysql_free_result(mysql_res);
+	free(buffer);
+
+
+
+	return;
+}
+
+
+void StateStorage::getNotarzt(int id, int* zeitpunkt, int* zustand)
+{
+	int simulationszeit = 0;
+
+	MYSQL_ROW  row;
+	MYSQL_RES  *mysql_res;
+
+	string query = "SELECT * FROM notfall WHERE idNotfall =";
+	query+= to_string(id);
+
+	/* jetzt die Anfrage an den Datenbankserver */
+	char * buffer = new char[query.length()+1];
+	strcpy(buffer, query.c_str());
+	mysql_real_query(conn, buffer, strlen(buffer));
+
+	/* Daten der Anfrage abholen */
+	mysql_res = mysql_store_result(conn);
+
+
+
+
+	row = mysql_fetch_row (mysql_res);
+	
+	*zeitpunkt = atoi(row[1]);
+	
+	cout << "DEBUG: **** "<< row[2][0] << endl;
+
+	char* wartend = "wartend";
+	if(strcmp(wartend, row[2]) == 0)
+	{
+		cout << "DEBUG: *****" << row[2] << endl;
+		*zustand = 0;
+	}
+	if(strcmp(row[2], "unterwegsPatient") == 0)
+	{	
+		cout << "DEBUG: *****" << row[2] << endl;
+		*zustand = 1;
+	}
+	if(row[2] == "unterwegsZentrale")
+	{
+		*zustand = 2;
+	}if(row[2] == "behandlung")
+	{
+		*zustand = 3;
+	}
+
+
+	
+
+	/* Speicherplatz wieder freigeben */
+	mysql_free_result(mysql_res);
+	free(buffer);
+
+
+	return;
+}
+
+
+void StateStorage::deleteOldNotarzt()
+{
+
+	string query = "DELETE FROM notarzt WHERE idNotarzt <> 0";
+
+	/* jetzt die Anfrage an den Datenbankserver */
+	char * buffer = new char[query.length()+1];
+	strcpy(buffer, query.c_str());
+	mysql_real_query(conn, buffer, strlen(buffer));
+	
+
+	/* Speicherplatz wieder freigeben */
+	free(buffer);
+
+}
+
+
+void StateStorage::deleteOldNotfall()
+{
+	string query = "DELETE FROM notfall WHERE idNotfall <> 0";
+
+	/* jetzt die Anfrage an den Datenbankserver */
+	char * buffer = new char[query.length()+1];
+	strcpy(buffer, query.c_str());
+	mysql_real_query(conn, buffer, strlen(buffer));
+	
+
+	/* Speicherplatz wieder freigeben */
+	free(buffer);
+}
+
 

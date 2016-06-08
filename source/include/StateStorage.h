@@ -26,6 +26,10 @@ class StateStorage
 		int max_idNotfall();
 		void storeNotarzt(Notarzt* notarzt, int simulationszeit);
 		void storeNotfall(Notfall* notfall, int simulationszeit);
+		void getNotfall(int id, int* zeitAnruf, int* startBehandlung, int* prio);
+		void getNotarzt(int id, int* zeitpunkt, int* zustand);
+		void deleteOldNotarzt();
+		void deleteOldNotfall();
 
     private:
 		MYSQL *conn;

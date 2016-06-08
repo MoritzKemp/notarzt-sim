@@ -6,7 +6,7 @@ OBJ_DIR = obj_1
 _OBJ = 	AnkunftPatientRoutine.o EndeBehandlungRoutine.o EndRoutine.o EventRoutine.o \
 		Event.o EventList.o HinfahrtPatientRoutine.o NeuerNotrufRoutine.o \
 		Notarzt.o Notfall.o NotfallWarteschlange.o \
-		SimObject.o SimulationManager.o StateStorage.o Zufall.o RueckfahrtRoutine.o AnkunftZentraleRoutine.o
+		SimObject.o SimulationManager.o StateStorage.o Zufall.o RueckfahrtRoutine.o AnkunftZentraleRoutine.o Nachberechnungen.o
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%,$(_OBJ))
 

@@ -9,12 +9,14 @@ SimulationManager::SimulationManager(
     EventList* eList,
     EventRoutine* roList[],
     int numRoutines,
-    StateStorage* storage
+    StateStorage* storage,
+	Nachberechnungen nach
 ){
     eventList = eList;
     routineList = roList;
     numOfRoutines = numRoutines;
     stateStorage = storage;
+	nachberechnungen = nach;
 };
 
 SimulationManager::~SimulationManager()
@@ -101,5 +103,33 @@ void SimulationManager::run(
 	cout << "********** End simulation loop **********" << endl;
     // Execute end routine
     executeEvent(currentEvent);
+
+	//Datenauswertung durchführen
+	breakdown();
 };
+
+void SimulationManager::breakdown()
+{
+	nachberechnungen.init(*stateStorage);
+	
+	int* time = new int();
+	int* art = new int();
+	
+	for(int i=1; i <= (*stateStorage).max_idNotarzt(); i++){
+		(*stateStorage).getNotarzt(i, time, art);
+		cout << "art = " << *art << "Zeitpunkt = " << *time << endl;
+	}
+
+	int* time1 = new int();
+	int* time2 = new int();
+	int* prio = new int();
+
+	for(int i=1; i <= (*stateStorage).max_idNotfall(); i++){
+		(*stateStorage).getNotfall(i, time1, time2, prio);
+		cout << "time1 = " << *time1 << " time2 = " << *time2 << " prio: " << *prio << endl;
+	}
+	
+	cout << "max_idNotfall: " << (*stateStorage).max_idNotfall() << endl;
+	cout << "max_idNotarzt: " << (*stateStorage).max_idNotarzt() << endl;
+}
 

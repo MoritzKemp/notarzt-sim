@@ -16,11 +16,13 @@
 #include "RueckfahrtRoutine.h"
 #include "AnkunftZentraleRoutine.h"
 #include "Zufall.h"
+#include "Nachberechnungen.h"
 
 using namespace std;
 
 int main(int argv, char** argc)
 {
+
     //Initial simulation objects
     EventList* eventList = new EventList();
     Notarzt* notarzt = new Notarzt(NotarztStates::WARTEND, 0);
@@ -28,6 +30,9 @@ int main(int argv, char** argc)
     //Initalize storage
     StateStorage* storage = new StateStorage();
     storage->registerNotarzt(notarzt);
+
+	//Initialize simulation analysis component
+	Nachberechnungen nachberechnungen = Nachberechnungen();
 
     NotfallWarteschlange* notfallWarteschlange = new NotfallWarteschlange(storage);
 
@@ -88,7 +93,8 @@ int main(int argv, char** argc)
         eventList,
         routines,
         numOfRoutines,
-        storage
+        storage,
+		nachberechnungen
     );
     simulationManager->run(events, numArrivals, 900); 
 };
