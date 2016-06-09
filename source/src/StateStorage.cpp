@@ -10,10 +10,11 @@
 
 using namespace std;
 
-StateStorage::StateStorage()
+StateStorage::StateStorage(int verb)
 {
 	conn = mysql_init(NULL);
 	dbconnect();
+	verbose = verb;
 }
 
 StateStorage::~StateStorage()
@@ -23,8 +24,10 @@ StateStorage::~StateStorage()
 
 void StateStorage::saveState(int simulationszeit)
 {
-    cout << "Current State at " << simulationszeit <<":" << endl;
-
+	if(verbose == 1)
+	{
+    	cout << "Current State at " << simulationszeit <<":" << endl;
+	}
 	//Handle registered emergencies
     list<Notfall*>::iterator iterNotfall = observedEmergencies.begin();
     Notfall* currentNotfall;
@@ -32,12 +35,14 @@ void StateStorage::saveState(int simulationszeit)
     {
         currentNotfall = *iterNotfall;
 
-		// Print to console
-		cout << "Notfall: time of receipt: " << currentNotfall->getCallTime(); 
-		cout << ", priority: " << currentNotfall->isUrgent();
-		cout << ", treatment duration: " << currentNotfall->getTreatmentDuration();
-		cout << ", place: " << currentNotfall->getPlace() << endl;
-
+		if(verbose == 1)
+		{
+			// Print to console
+			cout << "Notfall: time of receipt: " << currentNotfall->getCallTime(); 
+			cout << ", priority: " << currentNotfall->isUrgent();
+			cout << ", treatment duration: " << currentNotfall->getTreatmentDuration();
+			cout << ", place: " << currentNotfall->getPlace() << endl;
+		}
 		//Persist in database
 		storeNotfall(currentNotfall, simulationszeit);
 
@@ -51,11 +56,13 @@ void StateStorage::saveState(int simulationszeit)
     {
         currentNotarzt = *iterNotarzt;
 
-		// Print to console
-		cout << "Notarzt: timestamp: " << currentNotarzt->getTimestamp(); 
-		cout << ", priority: " << (int) currentNotarzt->getNotarztState();
-		cout << ", place: " << currentNotarzt->getNotarztPlace() << endl;
-
+		if(verbose == 1)
+		{
+			// Print to console
+			cout << "Notarzt: timestamp: " << currentNotarzt->getTimestamp(); 
+			cout << ", priority: " << (int) currentNotarzt->getNotarztState();
+			cout << ", place: " << currentNotarzt->getNotarztPlace() << endl;
+		}
 		//Persist in database
 		storeNotarzt(currentNotarzt, simulationszeit);
 

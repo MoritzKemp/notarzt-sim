@@ -17,7 +17,7 @@ Nachberechnungen::Nachberechnungen()
 
 
 //Auslesen und auswerten der Daten aus der Datenbank 
-void Nachberechnungen::init(StateStorage dSource){
+void Nachberechnungen::init(StateStorage *dSource){
 	Nachberechnungen::dataSource = dSource;
 	readData();
 	DataCutOff(Daten2.size()/5);
@@ -34,7 +34,7 @@ void Nachberechnungen::init(StateStorage dSource){
 	konfidenzIntervallBatches(links, rechts, Daten, anZahlBatches, 90);
 	cout << "90%iges-Konfidenzintervall: " << *links << " - " << *rechts << " Size: " << *rechts - *links <<endl;  
 
-	readData2(dSource.max_idNotfall()/5);
+	readData2(dSource->max_idNotfall()/5);
 }
 	
 	
@@ -46,8 +46,8 @@ void Nachberechnungen::init(StateStorage dSource){
 		int* time2 = new int();
 		int* prio = new int();
 		int* istLetzte = new int();
-		for(int i = 1; i <= dataSource.max_idNotfall(); i++){
-			dataSource.getNotfall(i,time2,time1,prio,istLetzte);
+		for(int i = 1; i <= dataSource->max_idNotfall(); i++){
+			dataSource->getNotfall(i,time2,time1,prio,istLetzte);
 			if(*prio == 0 && *istLetzte == 1){
 			Nachberechnungen::Daten2.push_back(*time1-*time2);
 			}
@@ -79,9 +79,9 @@ void Nachberechnungen::init(StateStorage dSource){
 		int* art = new int();
 		int oldArt = 0;
 		int oldTime = 0;
-		if(cut > 1){ dataSource.getNotarzt(cut - 1, time, art); oldArt = *art; oldTime = *time;}
-		for(int i = cut; i <= dataSource.max_idNotarzt(); i++){
-			dataSource.getNotarzt(i, time, art);
+		if(cut > 1){ dataSource->getNotarzt(cut - 1, time, art); oldArt = *art; oldTime = *time;}
+		for(int i = cut; i <= dataSource->max_idNotarzt(); i++){
+			dataSource->getNotarzt(i, time, art);
 			int timeDiff = *time - oldTime;
 			if (oldArt == unterwegsZentrale){Rueckfahrt += timeDiff;}
 			else{if (oldArt == unterwegsPatient){Hinfahrt += timeDiff;}

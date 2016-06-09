@@ -25,13 +25,14 @@ int main(int argv, char** argc)
 
 	//Simulation parameters
 	int endOfSimulation = 9000;
+	int verbose = 0;
 
     //Initial simulation objects
     EventList* eventList = new EventList();
     Notarzt* notarzt = new Notarzt(NotarztStates::WARTEND, 0);
 
     //Initalize storage
-    StateStorage* storage = new StateStorage();
+    StateStorage* storage = new StateStorage(verbose);
     storage->registerNotarzt(notarzt);
 
 	//Initialize simulation analysis component

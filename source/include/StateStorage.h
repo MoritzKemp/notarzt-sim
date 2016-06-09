@@ -11,7 +11,7 @@
 class StateStorage
 {
     public:
-        StateStorage();
+        StateStorage(int verbose);
         virtual ~StateStorage();
         void saveState(int simulationszeit);
         void registerNotfall(Notfall* notfall);
@@ -35,6 +35,7 @@ class StateStorage
 		MYSQL *conn;
         std::list<Notfall*> observedEmergencies;
 		std::list<Notarzt*> observedDoctors;
+		int verbose;
 };
 
 #endif // STATESTORAGE_H

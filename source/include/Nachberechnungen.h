@@ -21,7 +21,7 @@ public:
 	Nachberechnungen();
 	~Nachberechnungen();
 
-	void init(StateStorage dSource);
+	void init(StateStorage* dSource);
 	void readData();
 	void readData2(int cut);
 	void DataCutOff(int i);
@@ -54,7 +54,7 @@ public:
 	vector<int> Daten;
 	vector<int> Daten2;
 	vector<int> prio;
-	StateStorage dataSource;
+	StateStorage* dataSource;
 	int Hinfahrt;
 	int Rueckfahrt;
 	int Home;
