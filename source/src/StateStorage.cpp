@@ -333,43 +333,6 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	return;
 }
 
-int StateStorage::getNotfallWartezeit(int notfallAnruf)
-{
-	MYSQL_ROW row;
-	MYSQL_RES* mysql_res;
-
-	int waitingTime = 0;	
-
-	//Get time where emergency gets treated
-	string query = "SELECT StartBehandlung FROM notfall";
-	query += " WHERE StartBehandlung > 0 ";
-	query += " AND ZeitAnruf = ";
-	query += to_string(notfallAnruf);
-
-	 /* jetzt die Anfrage an den Datenbankserver */
-    char * buffer = new char[query.length()+1];
-    strcpy(buffer, query.c_str()); 
-    mysql_real_query(conn, buffer, strlen(buffer));
-
-	//Get data result
-	mysql_res = mysql_store_result(conn);
-	row = mysql_fetch_row(mysql_res);
-
-	check_error();
-
-	//Calculate waiting time
-	if(row != NULL)
-	{
-		waitingTime = atoi(row[0]) - notfallAnruf;	
-	}
-
-	/* Speicherplatz wieder freigeben */
-    mysql_free_result(mysql_res);
-    free(buffer);
-
-	return waitingTime;
-}
-
 void StateStorage::getNotarzt(int id, int* zeitpunkt, int* zustand)
 {
 	int simulationszeit = 0;

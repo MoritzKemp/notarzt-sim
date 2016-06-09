@@ -27,8 +27,7 @@ class StateStorage
 		void storeNotarzt(Notarzt* notarzt, int simulationszeit);
 		void storeNotfall(Notfall* notfall, int simulationszeit);
 		void getNotfall(int id, int* zeitAnruf, int* startBehandlung, int* prio, int* isLetzter);
-		void getNotarzt(int id, int* zeitpunkt, int* zustand);
-		int getNotfallWartezeit(int notfallAnruf);
+		void getNotarzt(int id, int* zeitpunkt, int* zustand);	
 		void deleteOldNotarzt();
 		void deleteOldNotfall();
 
