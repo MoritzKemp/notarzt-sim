@@ -23,6 +23,9 @@ using namespace std;
 int main(int argv, char** argc)
 {
 
+	//Simulation parameters
+	int endOfSimulation = 9000;
+
     //Initial simulation objects
     EventList* eventList = new EventList();
     Notarzt* notarzt = new Notarzt(NotarztStates::WARTEND, 0);
@@ -40,7 +43,7 @@ int main(int argv, char** argc)
 	Zufall* randomGenerator = new Zufall();
 	vector<int> *callArrivals = new vector<int>();
 	int numArrivals;
-	randomGenerator->getRandomExpNotruf(900, callArrivals, &numArrivals);
+	randomGenerator->getRandomExpNotruf(endOfSimulation, callArrivals, &numArrivals);
 	
     Event* events[numArrivals];
 
@@ -96,5 +99,5 @@ int main(int argv, char** argc)
         storage,
 		nachberechnungen
     );
-    simulationManager->run(events, numArrivals, 900); 
+    simulationManager->run(events, numArrivals, endOfSimulation); 
 };

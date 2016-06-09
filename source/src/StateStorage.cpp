@@ -1,3 +1,5 @@
+
+
 #include "StateStorage.h"
 #include "NotarztStates.h"
 #include <iostream>
@@ -300,7 +302,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	*prio = atoi(row[1]);
 	*startBehandlung = atoi(row[2]);
 	int tmpTime = atoi(row[3]);
-
+	int Behandlung = atoi(row[4]);
 	/* Speicherplatz wieder freigeben */
 	mysql_free_result(mysql_res);
 	free(buffer);
@@ -318,7 +320,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 
 	row2 = mysql_fetch_row (mysql_res2);
 
-	if(atoi(row2[0]) == tmpTime){
+	if(atoi(row2[0]) == tmpTime && Behandlung == 1){
 		*istLetzter = 1;
 	}else{
 		*istLetzter = 0;
@@ -456,5 +458,3 @@ void StateStorage::deleteOldNotfall()
 	/* Speicherplatz wieder freigeben */
 	free(buffer);
 }
-
-
