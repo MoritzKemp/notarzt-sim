@@ -284,7 +284,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	MYSQL_ROW  row2;
 	MYSQL_RES  *mysql_res2;
 
-	string query = "SELECT ZeitAnruf, Prio, StartBehandlung, Simulationszeit FROM notfall WHERE idNotfall =";
+	string query = "SELECT ZeitAnruf, Prio, StartBehandlung, Simulationszeit, Behandlung FROM notfall WHERE idNotfall =";
 	query+= to_string(id);
 
 	/* jetzt die Anfrage an den Datenbankserver */
@@ -303,6 +303,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	*startBehandlung = atoi(row[2]);
 	int tmpTime = atoi(row[3]);
 	int Behandlung = atoi(row[4]);
+
 	/* Speicherplatz wieder freigeben */
 	mysql_free_result(mysql_res);
 	free(buffer);
