@@ -17,6 +17,10 @@ SimulationManager::SimulationManager(
     numOfRoutines = numRoutines;
     stateStorage = storage;
 	nachberechnungen = nach;
+
+	//Clean database
+	stateStorage->deleteOldNotarzt();
+	stateStorage->deleteOldNotfall();
 };
 
 SimulationManager::~SimulationManager()
@@ -117,7 +121,7 @@ void SimulationManager::breakdown()
 	
 	for(int i=1; i <= (*stateStorage).max_idNotarzt(); i++){
 		(*stateStorage).getNotarzt(i, time, art);
-		cout << "art = " << *art << "Zeitpunkt = " << *time << endl;
+		cout << "art = " << *art << " Zeitpunkt = " << *time << endl;
 	}
 
 	int* time1 = new int();

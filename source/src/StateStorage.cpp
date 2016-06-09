@@ -279,7 +279,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	MYSQL_ROW  row;
 	MYSQL_RES  *mysql_res;
 
-	string query = "SELECT * FROM notfall WHERE idNotfall =";
+	string query = "SELECT ZeitAnruf, Prio, StartBehandlung FROM notfall WHERE idNotfall =";
 	query+= to_string(id);
 
 	/* jetzt die Anfrage an den Datenbankserver */
@@ -291,9 +291,9 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	mysql_res = mysql_store_result(conn);
 
 	row = mysql_fetch_row (mysql_res);
-	*zeitAnruf = atoi(row[1]);
-	*prio = atoi(row[2]);
-	*startBehandlung = atoi(row[5]);
+	*zeitAnruf = atoi(row[0]);
+	*prio = atoi(row[1]);
+	*startBehandlung = atoi(row[2]);
 
 
 	/* Speicherplatz wieder freigeben */
@@ -313,9 +313,9 @@ void StateStorage::getNotarzt(int id, int* zeitpunkt, int* zustand)
 	MYSQL_ROW  row;
 	MYSQL_RES  *mysql_res;
 
-	string query = "SELECT * FROM notfall WHERE idNotfall =";
-	query+= to_string(id);
-
+	string query = "SELECT Zeitpunkt, Zustand  FROM notarzt WHERE idNotarzt = ";
+	query += to_string(id);
+	
 	/* jetzt die Anfrage an den Datenbankserver */
 	char * buffer = new char[query.length()+1];
 	strcpy(buffer, query.c_str());
@@ -325,29 +325,30 @@ void StateStorage::getNotarzt(int id, int* zeitpunkt, int* zustand)
 	mysql_res = mysql_store_result(conn);
 
 
-
+	check_error();
 
 	row = mysql_fetch_row (mysql_res);
 	
-	*zeitpunkt = atoi(row[1]);
-	
-	cout << "DEBUG: **** "<< row[2][0] << endl;
+	*zeitpunkt = atoi(row[0]);
 
-	char* wartend = "wartend";
-	if(strcmp(wartend, row[2]) == 0)
-	{
-		cout << "DEBUG: *****" << row[2] << endl;
+	char* wartend 			= "wartend";
+	char* unterwegsPatient 	= "unterwegsPatient";
+	char* unterwegsZentrale	= "unterwegsZentrale";
+	char* behandlung		= "behandlung";
+
+	if(strcmp(wartend, row[1]) == 0)
+	{	
 		*zustand = 0;
 	}
-	if(strcmp(row[2], "unterwegsPatient") == 0)
+	if(strcmp(unterwegsPatient, row[1]) == 0)
 	{	
-		cout << "DEBUG: *****" << row[2] << endl;
 		*zustand = 1;
 	}
-	if(row[2] == "unterwegsZentrale")
+	if(strcmp(unterwegsZentrale, row[1]) == 0)
 	{
 		*zustand = 2;
-	}if(row[2] == "behandlung")
+	}
+	if(strcmp(behandlung, row[1]) == 0)
 	{
 		*zustand = 3;
 	}
