@@ -95,7 +95,7 @@ void StateStorage::dbconnect()
 	printf("Verbingung zur Datenbank herstellen... ");
 	conn = mysql_init(conn);
 	check_error();
-	mysql_real_connect(conn, "localhost", "root", "", "simulation", 0, NULL, 0);
+	mysql_real_connect(conn, "localhost", "root", "johannes", "simulation", 0, NULL, 0);
 	check_error();
 	printf("done\n");
 }
@@ -273,11 +273,14 @@ void StateStorage::storeNotfall(Notfall* notfall, int simulationszeit)
 	
 }
 
-void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int* prio)
+void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int* prio, int* istLetzter)
 {
 
 	MYSQL_ROW  row;
 	MYSQL_RES  *mysql_res;
+	
+	MYSQL_ROW  row2;
+	MYSQL_RES  *mysql_res2;
 
 	string query = "SELECT ZeitAnruf, Prio, StartBehandlung FROM notfall WHERE idNotfall =";
 	query+= to_string(id);
@@ -300,11 +303,67 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	mysql_free_result(mysql_res);
 	free(buffer);
 
+	string query2 = "SELECT MAX(Simulationszeit) FROM notfall WHERE ZeitAnruf =";
+	query2+= to_string(*zeitAnruf);
 
+	/* jetzt die Anfrage an den Datenbankserver */
+	char * buffer2 = new char[query2.length()+1];
+	strcpy(buffer2, query2.c_str());
+	mysql_real_query(conn, buffer2, strlen(buffer2));
+
+	/* Daten der Anfrage abholen */
+	mysql_res2 = mysql_store_result(conn);
+
+	row2 = mysql_fetch_row (mysql_res2);
+
+	if(row2[0] == row[6]){
+		*istLetzter = 1;
+	}else{
+		*istLetzter = 0;
+	}
+
+	mysql_free_result(mysql_res2);
+	free(buffer2);
 
 	return;
 }
 
+int StateStorage::getNotfallWartezeit(int notfallAnruf)
+{
+	MYSQL_ROW row;
+	MYSQL_RES* mysql_res;
+
+	int waitingTime = 0;	
+
+	//Get time where emergency gets treated
+	string query = "SELECT StartBehandlung FROM notfall";
+	query += " WHERE StartBehandlung > 0 ";
+	query += " AND ZeitAnruf = ";
+	query += to_string(notfallAnruf);
+
+	 /* jetzt die Anfrage an den Datenbankserver */
+    char * buffer = new char[query.length()+1];
+    strcpy(buffer, query.c_str()); 
+    mysql_real_query(conn, buffer, strlen(buffer));
+
+	//Get data result
+	mysql_res = mysql_store_result(conn);
+	row = mysql_fetch_row(mysql_res);
+
+	check_error();
+
+	//Calculate waiting time
+	if(row != NULL)
+	{
+		waitingTime = atoi(row[0]) - notfallAnruf;	
+	}
+
+	/* Speicherplatz wieder freigeben */
+    mysql_free_result(mysql_res);
+    free(buffer);
+
+	return waitingTime;
+}
 
 void StateStorage::getNotarzt(int id, int* zeitpunkt, int* zustand)
 {
