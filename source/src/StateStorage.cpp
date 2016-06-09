@@ -95,7 +95,7 @@ void StateStorage::dbconnect()
 	printf("Verbingung zur Datenbank herstellen... ");
 	conn = mysql_init(conn);
 	check_error();
-	mysql_real_connect(conn, "localhost", "root", "johannes", "simulation", 0, NULL, 0);
+	mysql_real_connect(conn, "localhost", "root", "", "simulation", 0, NULL, 0);
 	check_error();
 	printf("done\n");
 }
@@ -282,7 +282,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 	MYSQL_ROW  row2;
 	MYSQL_RES  *mysql_res2;
 
-	string query = "SELECT ZeitAnruf, Prio, StartBehandlung FROM notfall WHERE idNotfall =";
+	string query = "SELECT ZeitAnruf, Prio, StartBehandlung, Simulationszeit FROM notfall WHERE idNotfall =";
 	query+= to_string(id);
 
 	/* jetzt die Anfrage an den Datenbankserver */
@@ -292,12 +292,14 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 
 	/* Daten der Anfrage abholen */
 	mysql_res = mysql_store_result(conn);
+	
+	check_error();
 
 	row = mysql_fetch_row (mysql_res);
 	*zeitAnruf = atoi(row[0]);
 	*prio = atoi(row[1]);
 	*startBehandlung = atoi(row[2]);
-
+	int tmpTime = atoi(row[3]);
 
 	/* Speicherplatz wieder freigeben */
 	mysql_free_result(mysql_res);
@@ -316,7 +318,7 @@ void StateStorage::getNotfall(int id, int* zeitAnruf, int* startBehandlung, int*
 
 	row2 = mysql_fetch_row (mysql_res2);
 
-	if(row2[0] == row[6]){
+	if(atoi(row2[0]) == tmpTime){
 		*istLetzter = 1;
 	}else{
 		*istLetzter = 0;

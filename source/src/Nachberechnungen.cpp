@@ -20,7 +20,7 @@ Nachberechnungen::Nachberechnungen()
 void Nachberechnungen::init(StateStorage dSource){
 	Nachberechnungen::dataSource = dSource;
 	readData();
-	DataCutOff(dSource.max_idNotarzt()/5);
+	DataCutOff(Daten2.size()/5);
 
 	double* links = new double();
 	double* rechts = new double();
@@ -45,9 +45,10 @@ void Nachberechnungen::init(StateStorage dSource){
 		int* time1 = new int();
 		int* time2 = new int();
 		int* prio = new int();
+		int* istLetzte = new int();
 		for(int i = 1; i <= dataSource.max_idNotfall(); i++){
-			dataSource.getNotfall(i,time2,time1,prio);
-			if(*prio == 0){
+			dataSource.getNotfall(i,time2,time1,prio,istLetzte);
+			if(*prio == 0 && *istLetzte == 1){
 			Nachberechnungen::Daten2.push_back(*time1-*time2);
 			}
 		}

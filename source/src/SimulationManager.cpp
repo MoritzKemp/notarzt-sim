@@ -127,10 +127,12 @@ void SimulationManager::breakdown()
 	int* time1 = new int();
 	int* time2 = new int();
 	int* prio = new int();
-
+	int* istLetzter = new int();
 	for(int i=1; i <= (*stateStorage).max_idNotfall(); i++){
-		(*stateStorage).getNotfall(i, time1, time2, prio);
+		(*stateStorage).getNotfall(i, time1, time2, prio, istLetzter);
+		if(*istLetzter){
 		cout << "time1 = " << *time1 << " time2 = " << *time2 << " prio: " << *prio << endl;
+		}
 	}
 	
 	cout << "max_idNotfall: " << (*stateStorage).max_idNotfall() << endl;
